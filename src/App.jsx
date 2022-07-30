@@ -1,6 +1,8 @@
 import './App.css';
 import React from 'react';
 import * as GAME_STATE from './utils/gameState';
+import Game from './components/Game/Game';
+import Welcome from './components/Welcome/Welcome';
 
 const App = () => {
   // 游戏状态，游戏阶段
@@ -8,7 +10,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <h1 className='title'>Battleship Project</h1>
+      {gameState === GAME_STATE.WELCOME ? <Welcome /> : <Game />}
     </div>
   );
 };
