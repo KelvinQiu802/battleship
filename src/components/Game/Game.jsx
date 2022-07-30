@@ -1,7 +1,7 @@
 const Game = () => {
   return (
     <div className='game'>
-      <h1>Game</h1>
+      <h1 style={{ fontSize: '10em' }}>Game</h1>
     </div>
   );
 };

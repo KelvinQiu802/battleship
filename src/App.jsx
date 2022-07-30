@@ -10,7 +10,11 @@ const App = () => {
 
   return (
     <div className='App'>
-      {gameState === GAME_STATE.WELCOME ? <Welcome /> : <Game />}
+      {gameState === GAME_STATE.WELCOME ? (
+        <Welcome setGameState={setGameState} />
+      ) : (
+        <Game />
+      )}
     </div>
   );
 };
