@@ -1,4 +1,3 @@
-import './welcome.css';
 import * as GAME_STATE from '../../utils/gameState';
 import React, { Component } from 'react';
 
@@ -21,35 +20,89 @@ const Welcome = ({ setGameState }) => {
         </header>
 
         <div class='px-4 pt-5 my-5 text-center'>
-          <h1 class='display-1 fw-bold'>Welcome</h1>
+          <h1 class='display-1 fw-bold'>欢迎游玩</h1>
           <div class='col-lg-6 mx-auto'>
             <p class='lead mb-4'>
-              Battleship (also known as Battleships or Sea Battle) is a strategy
-              type guessing game for two players. It is played on ruled grids
-              (paper or board) on which each player's fleet of warships are
-              marked. The locations of the fleets are concealed from the other
-              player. Players alternate turns calling "shots" at the other
-              player's ships, and the objective of the game is to destroy the
-              opposing player's fleet. Battleship is known worldwide as a pencil
-              and paper game which dates from World War I. It was published by
-              various companies as a pad-and-pencil game in the 1930s and was
-              released as a plastic board game by Milton Bradley in 1967. The
-              game has spawned electronic versions, video games, smart device
-              apps and a film.
+              海战（英语：Battleship，又名海战棋）是一款双人玩的猜谜游戏。
+              {/* Battleship (also known as Battleships or Sea Battle) is a
+              strategytype guessing game for two players. */}
             </p>
-            <div class='d-grid gap-2 d-sm-flex justify-content-sm-center mb-5'>
-              <button type='button' class='btn btn-primary btn-lg px-4 me-sm-3'>
-                Start
-              </button>
-              <button
-                type='button'
-                class='btn btn-outline-secondary btn-lg px-4'
-              >
-                help
-              </button>
-            </div>
           </div>
         </div>
+
+        <form>
+          <h1 class='h3 mb-3 fw-normal text-center'>请输入对战信息</h1>
+
+          <div class='input-group input-group-lg w-50 mx-auto'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>
+              玩家1的昵称
+            </span>
+            <input
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+
+          <div class='input-group input-group-lg w-50 mx-auto'>
+            <span class='input-group-text' id='inputGroup-sizing-lg'>
+              玩家2的昵称
+            </span>
+            <input
+              type='text'
+              class='form-control'
+              aria-label='Sizing example input'
+              aria-describedby='inputGroup-sizing-lg'
+            />
+          </div>
+
+          <div class='text-center my-5'>
+            <div class='form-check form-check-inline '>
+              <input
+                class='form-check-input align-middle'
+                type='radio'
+                name='inlineRadioOptions'
+                id='inlineRadio1'
+                value='option1'
+              />
+              <label class='form-check-label fs-3' for='inlineRadio1'>
+                单人模式
+              </label>
+            </div>
+            <div class='form-check form-check-inline'>
+              <input
+                class='form-check-input'
+                type='radio'
+                name='inlineRadioOptions'
+                id='inlineRadio2'
+                value='option2'
+              />
+              <label className='form-check-label fs-3' for='inlineRadio2'>
+                双人对战模式
+              </label>
+            </div>
+          </div>
+
+          <div class='d-flex mb-5 mx-auto w-25'>
+            <span class='input-group-text ' id='inputGroup-sizing-lg'>
+              选择语言
+            </span>
+            <select
+              class='form-select form-select-lg '
+              aria-label='.form-select-lg example'
+            >
+              <option selected>简体中文</option>
+              <option value='1'>English</option>
+            </select>
+          </div>
+
+          <div className='text-center'>
+            <button class='w-50 btn btn-lg btn-primary' type='submit'>
+              开始游戏
+            </button>
+          </div>
+        </form>
       </div>
     </React.Fragment>
   );
