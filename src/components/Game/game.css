@@ -26,6 +26,10 @@
   cursor: pointer;
 }
 
+.block.ship {
+  background-color: rgba(255, 166, 0, 0.31);
+}
+
 .block:hover {
   background-color: rgba(255, 166, 0, 0.275);
 }

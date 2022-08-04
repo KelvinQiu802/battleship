@@ -1,7 +1,16 @@
-import { createEmptyBoard, indexToCoordinate } from '../../utils/boardTools.js';
+import {
+  createEmptyBoard,
+  indexToCoordinate,
+  placeShipOnBoard,
+} from '../../utils/boardTools.js';
 
-const Board = ({ gameState, player, name, setPlacingShip }) => {
+const Board = ({ gameState, player, name, placingShip, setPlacingShip }) => {
   let board = createEmptyBoard();
+
+  // 渲染正在放置的船
+  board = placeShipOnBoard(board, placingShip);
+
+  console.log(board);
 
   const handleMove = (index) => {
     const { row, col } = indexToCoordinate(index);
@@ -16,6 +25,7 @@ const Board = ({ gameState, player, name, setPlacingShip }) => {
     });
   };
 
+  // 放置船
   const handleClick = () => {};
 
   // 右键旋转
@@ -44,7 +54,7 @@ const Board = ({ gameState, player, name, setPlacingShip }) => {
           {board.map((state, index) => (
             <div
               key={index}
-              className='block'
+              className={`block ${state}`}
               data-index={index}
               onMouseMove={() => handleMove(index)}
               onMouseDown={handleTurn}
