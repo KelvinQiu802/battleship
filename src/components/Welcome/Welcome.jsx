@@ -1,5 +1,5 @@
 import * as GAME_STATE from '../../utils/gameState';
-import React, { Component } from 'react';
+import React from 'react';
 import Header from '../Header';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
