@@ -39,6 +39,7 @@ const Board = ({
 
   // 移动时更新坐标
   const handleMove = (index) => {
+    if (!placingShip) return;
     const { row, col } = indexToCoordinate(index);
     setPlacingShip((prev) => {
       return {
@@ -76,7 +77,7 @@ const Board = ({
   // 右键旋转
   const handleTurn = (e) => {
     // 右键
-    if (e.button === 2) {
+    if (e.button === 2 && placingShip) {
       setPlacingShip((prev) => {
         return {
           ...prev,
