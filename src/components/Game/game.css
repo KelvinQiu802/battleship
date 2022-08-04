@@ -2,7 +2,6 @@
   display: flex;
   margin-top: 150px;
   justify-content: space-evenly;
-  background-color: orange;
 }
 
 .board {
@@ -11,9 +10,52 @@
   flex-wrap: wrap;
 }
 
+.board-container {
+  text-align: center;
+}
+
+.board-title {
+  font-size: 2em;
+}
+
 .block {
   width: 40px;
   height: 40px;
+  border: 1px solid black;
+  margin: 0 -1px -1px 0;
+  cursor: pointer;
+}
+
+.block:hover {
+  background-color: rgba(255, 166, 0, 0.275);
+}
+
+.harbour {
+  width: 180px;
+  border: 1px solid black;
+  padding: 30px 10px;
+}
+
+.ship-container {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ship-container:hover {
+  background-color: rgba(135, 207, 235, 0.244);
+}
+
+.harbour-ship {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.ship-unit {
+  width: 10px;
+  height: 10px;
   border: 1px solid black;
   margin: 0 -1px -1px 0;
 }

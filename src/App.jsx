@@ -1,7 +1,6 @@
 import './App.css';
 import React from 'react';
 import * as GAME_STATE from './utils/gameState';
-import * as SHIPS from './utils/ships.js';
 import Game from './components/Game/Game';
 import Welcome from './components/Welcome/Welcome';
 
