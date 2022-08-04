@@ -1,0 +1,29 @@
+.welcome-body {
+  text-align: center;
+}
+
+.welcome-title {
+  font-size: 4em;
+  margin-top: 40px;
+}
+
+.welcome-intro {
+  font-size: 1.5em;
+  margin-top: 18px;
+  margin-bottom: 50px;
+}
+
+.welcome-form label {
+  font-size: 1.3em;
+}
+
+.welcome-form input {
+  vertical-align: baseline;
+  margin-bottom: 30px;
+}
+
+.button-start {
+  font-size: 2em;
+  padding: 10px 30px;
+  margin-top: 40px;
+}
