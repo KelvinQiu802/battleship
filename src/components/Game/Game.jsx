@@ -22,7 +22,7 @@ const Game = ({ gameState, setGameState, formData }) => {
     SHIPS.SUBMARINE,
     SHIPS.PATROL,
   ]);
-  const [p2PlacingShip, setP2PlacingSHip] = React.useState(null);
+  const [p2PlacingShip, setP2PlacingShip] = React.useState(null);
   const [p2PlacedShips, setP2PlacedShips] = React.useState([]);
 
   return (
@@ -32,11 +32,13 @@ const Game = ({ gameState, setGameState, formData }) => {
         <Board
           player='p1'
           gameState={gameState}
+          setGameState={setGameState}
           name={formData.p1Name}
           setPlacingShip={setP1PlacingShip}
           placingShip={p1PlacingShip}
           placedShips={p1PlacedShips}
           setPlacedShips={setP1PlacedShips}
+          avaliableShips={p1AvaliableShips}
           setAvaliableShips={setP1AvaliableShips}
         />
         <Harbour
@@ -46,16 +48,18 @@ const Game = ({ gameState, setGameState, formData }) => {
           setP1PlacingShip={setP1PlacingShip}
           p2PlacingShip={p2PlacingShip}
           p2AvaliableShips={p2AvaliableShips}
-          setP2PlacingShips={setP2PlacingSHip}
+          setP2PlacingShip={setP2PlacingShip}
         />
         <Board
           player='p2'
           gameState={gameState}
+          setGameState={setGameState}
           name={formData.p2Name}
-          setPlacingShip={setP2PlacingSHip}
+          setPlacingShip={setP2PlacingShip}
           placingShip={p2PlacingShip}
           placedShips={p2PlacedShips}
           setPlacedShips={setP2PlacedShips}
+          avaliableShips={p2AvaliableShips}
           setAvaliableShips={setP2AvaliableShips}
         />
       </main>

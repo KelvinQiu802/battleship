@@ -10,10 +10,10 @@ const Harbour = ({
   p2AvaliableShips,
   setP2PlacingShip,
 }) => {
-  const placingShip = gameState.includes('p1') ? p1PlacingShip : p2PlacingShip;
-  const setPlacingShip = gameState.includes('p1')
-    ? setP1PlacingShip
-    : setP2PlacingShip;
+  const isP1 = gameState.includes('p1');
+  const placingShip = isP1 ? p1PlacingShip : p2PlacingShip;
+  const setPlacingShip = isP1 ? setP1PlacingShip : setP2PlacingShip;
+  const avaliableShips = isP1 ? p1AvaliableShips : p2AvaliableShips;
 
   // 选择正在放置的船只
   const handleSelect = (ship) => {
@@ -29,7 +29,7 @@ const Harbour = ({
 
   return (
     <div className='harbour'>
-      {p1AvaliableShips.map((ship) => (
+      {avaliableShips.map((ship) => (
         <div
           key={ship.name}
           className={`ship-container ${

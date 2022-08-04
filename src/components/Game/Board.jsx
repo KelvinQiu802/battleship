@@ -5,15 +5,18 @@ import {
   coordinateToIndex,
 } from '../../utils/boardTools.js';
 import * as BLOCK_STATE from '../../utils/blockStates';
+import * as GAME_STATE from '../../utils/gameState';
 
 const Board = ({
   gameState,
+  setGameState,
   player,
   name,
   placingShip,
   setPlacingShip,
   placedShips,
   setPlacedShips,
+  avaliableShips,
   setAvaliableShips,
 }) => {
   // 空棋盘
@@ -28,6 +31,11 @@ const Board = ({
 
   // 渲染正在放置的船
   board = placeShipOnBoard(board, placingShip, true);
+
+  // 更新游戏状态
+  if (player === 'p1' && avaliableShips.length === 0) {
+    setGameState(GAME_STATE.P2PLACING);
+  }
 
   // 移动时更新坐标
   const handleMove = (index) => {
