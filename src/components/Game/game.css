@@ -60,6 +60,10 @@
   margin: 0 -1px -1px 0;
 }
 
+.ship-selected {
+  background-color: rgba(135, 207, 235, 0.244);
+}
+
 .waiting-title {
   font-size: 3em;
   margin-top: 100px;

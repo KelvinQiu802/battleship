@@ -25,8 +25,6 @@ const Game = ({ gameState, setGameState, formData }) => {
   const [p2PlacingShip, setP2PlacingSHip] = React.useState(null);
   const [p2PlacedShip, setP2PlacedShip] = React.useState([]);
 
-  console.log(p1PlacingShip);
-
   return (
     <div className='game'>
       <Header />
@@ -34,8 +32,10 @@ const Game = ({ gameState, setGameState, formData }) => {
         <Board player='p1' gameState={gameState} name={formData.p1Name} />
         <Harbour
           gameState={gameState}
+          p1PlacingShip={p1PlacingShip}
           p1AvaliableShips={p1AvaliableShips}
           setP1PlacingShip={setP1PlacingSHip}
+          p2PlacingShip={p2PlacingShip}
           p2AvaliableShips={p2AvaliableShips}
           setP2PlacingShip={setP2PlacingSHip}
         />
