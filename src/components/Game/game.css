@@ -1,0 +1,78 @@
+.game-area {
+  display: flex;
+  margin-top: 150px;
+  justify-content: space-evenly;
+}
+
+.board {
+  display: flex;
+  width: 328px;
+  flex-wrap: wrap;
+}
+
+.board-container {
+  text-align: center;
+}
+
+.board-title {
+  font-size: 2em;
+}
+
+.block {
+  width: 40px;
+  height: 40px;
+  border: 1px solid black;
+  margin: 0 -1px -1px 0;
+  cursor: pointer;
+}
+
+.block.placing {
+  background-color: rgba(255, 166, 0, 0.31);
+}
+
+.block.ship {
+  background-color: rgba(0, 0, 255, 0.299);
+}
+
+.block.forbidden {
+  background-color: rgba(255, 0, 0, 0.294);
+}
+
+.harbour {
+  width: 180px;
+  border: 1px solid black;
+  padding: 30px 10px;
+}
+
+.ship-container {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  padding: 5px 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.ship-container:hover {
+  background-color: rgba(135, 207, 235, 0.244);
+}
+
+.harbour-ship {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.ship-unit {
+  width: 10px;
+  height: 10px;
+  border: 1px solid black;
+  margin: 0 -1px -1px 0;
+}
+
+.ship-selected {
+  background-color: rgba(135, 207, 235, 0.244);
+}
+
+.waiting-title {
+  font-size: 3em;
+  margin-top: 100px;
+}

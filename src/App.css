@@ -1,0 +1,25 @@
+.area {
+  width: 1200px;
+  margin: 0 auto;
+}
+
+.header {
+  display: flex;
+  width: 30px;
+  background-color: #f4f4f5;
+  width: 100%;
+  padding: 6px 0;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+}
+
+.header img {
+  width: 50px;
+  margin-left: 80px;
+}
+
+.header-title {
+  position: relative;
+  top: 10px;
+  margin-left: 20px;
+  font-size: 2em;
+}
