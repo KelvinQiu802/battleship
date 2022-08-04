@@ -3,7 +3,8 @@
   width: 30px;
   background-color: #f4f4f5;
   width: 100vw;
-  padding: 10px 40px;
+  padding: 6px 80px;
+  box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .header img {
@@ -12,6 +13,7 @@
 
 .header-title {
   position: relative;
-  top: 7px;
+  top: 10px;
   margin-left: 20px;
+  font-size: 2em;
 }
