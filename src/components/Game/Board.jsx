@@ -81,7 +81,7 @@ const Board = ({
         return {
           ...prev,
           direction:
-            prev.direction === 'HORIZONTAL' ? 'VERTICAL' : 'HORITZONTAL',
+            prev.direction === 'HORIZONTAL' ? 'VERTICAL' : 'HORIZONTAL',
         };
       });
     }
