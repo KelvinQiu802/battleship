@@ -9,8 +9,8 @@ const App = () => {
   const [gameState, setGameState] = React.useState(GAME_STATE.WELCOME);
   // 表单数据
   const [formData, setFormData] = React.useState({
-    p1Name: '',
-    p2Name: '',
+    p1Name: 'Kelvin',
+    p2Name: 'Lydia',
     playMode: 'multiPlayer',
     language: 'chinese',
   });

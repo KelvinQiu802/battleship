@@ -3,12 +3,9 @@ import React, { Component } from 'react';
 import Header from '../Header';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
-  const handleStart = () => {
-    setGameState(GAME_STATE.P1PLACING);
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
+    setGameState(GAME_STATE.P1PLACING);
   };
 
   const handleChange = (e) => {
@@ -39,14 +36,18 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             onChange={handleChange}
           />
           <br />
-          <label htmlFor='p2Name'>玩家2名称:</label>
-          <input
-            type='text'
-            name='p2Name'
-            id='p2Name'
-            value={formData.p2Name}
-            onChange={handleChange}
-          />
+          {formData.playMode === 'multiPlayer' && (
+            <>
+              <label htmlFor='p2Name'>玩家2名称:</label>
+              <input
+                type='text'
+                name='p2Name'
+                id='p2Name'
+                value={formData.p2Name}
+                onChange={handleChange}
+              />
+            </>
+          )}
           <br />
           <input
             type='radio'
