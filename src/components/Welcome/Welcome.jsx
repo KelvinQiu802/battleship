@@ -34,6 +34,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             id='p1Name'
             value={formData.p1Name}
             onChange={handleChange}
+            autoFocus
           />
           <br />
           {formData.playMode === 'multiPlayer' && (
