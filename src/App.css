@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  width: 30px;
+  background-color: #f4f4f5;
+  width: 100vw;
+  padding: 10px 40px;
+}
+
+.header img {
+  width: 50px;
+}
+
+.header-title {
+  position: relative;
+  top: 7px;
+  margin-left: 20px;
+}
