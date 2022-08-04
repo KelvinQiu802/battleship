@@ -1,7 +1,16 @@
+import Header from '../Header';
+import Board from './Board';
+import Harbour from './Harbour';
+
 const Game = () => {
   return (
     <div className='game'>
-      <h1 style={{ fontSize: '10em' }}>Game</h1>
+      <Header />
+      <main className='area game-area'>
+        <Board />
+        <Harbour />
+        <Board />
+      </main>
     </div>
   );
 };
