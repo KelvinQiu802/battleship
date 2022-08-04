@@ -15,16 +15,6 @@ const App = () => {
     playMode: 'multiPlayer',
     language: 'chinese',
   });
-  // 玩家数据
-  const [p1AvaliableShips, setP1AvaliableShips] = React.useState([
-    SHIPS.CARRIER,
-    SHIPS.BATTLESHIP,
-    SHIPS.DESTROYER,
-    SHIPS.SUBMARINE,
-    SHIPS.PATROL,
-  ]);
-  const [p1PlacingShip, setP1PlacingSHip] = React.useState(null);
-  const [p1PlacedShip, setP1PlacedShip] = React.useState([]);
 
   return (
     <div className='App'>
@@ -35,7 +25,11 @@ const App = () => {
           setFormData={setFormData}
         />
       ) : (
-        <Game />
+        <Game
+          gameState={gameState}
+          setGameState={setGameState}
+          formData={formData}
+        />
       )}
     </div>
   );
