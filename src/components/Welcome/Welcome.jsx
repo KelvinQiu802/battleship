@@ -2,12 +2,24 @@ import * as GAME_STATE from '../../utils/gameState';
 import React, { Component } from 'react';
 import Header from '../Header';
 
-const Welcome = ({ setGameState }) => {
+const Welcome = ({ setGameState, formData, setFormData }) => {
   const handleStart = () => {
     setGameState(GAME_STATE.P1PLACING);
   };
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  const handleChange = (e) => {
+    const { value, name, type, checked } = e.target;
+    setFormData((prev) => {
+      return {
+        ...prev,
+        [name]: type === 'checkbox' ? checked : value,
+      };
+    });
+  };
 
   return (
     <div className='welcome'>
@@ -19,16 +31,30 @@ const Welcome = ({ setGameState }) => {
         </p>
         <form onSubmit={handleSubmit} className='welcome-form'>
           <label htmlFor='p1Name'>玩家1名称:</label>
-          <input type='text' name='p1Name' id='p1Name' />
+          <input
+            type='text'
+            name='p1Name'
+            id='p1Name'
+            value={formData.p1Name}
+            onChange={handleChange}
+          />
           <br />
           <label htmlFor='p2Name'>玩家2名称:</label>
-          <input type='text' name='p2Name' id='p2Name' />
+          <input
+            type='text'
+            name='p2Name'
+            id='p2Name'
+            value={formData.p2Name}
+            onChange={handleChange}
+          />
           <br />
           <input
             type='radio'
             name='playMode'
             id='multiPlayer'
             value='multiPlayer'
+            checked={formData.playMode === 'multiPlayer'}
+            onChange={handleChange}
           />
           <label htmlFor='multiPlayer'>双人</label>
           <input
@@ -36,11 +62,18 @@ const Welcome = ({ setGameState }) => {
             name='playMode'
             id='singlePlayer'
             value='singlePlayer'
+            checked={formData.playMode === 'singlePlayer'}
+            onChange={handleChange}
           />
           <label htmlFor='singlePlayer'>单人</label>
           <br />
           <label htmlFor='language'>语言: </label>
-          <select name='language' id='language'>
+          <select
+            name='language'
+            id='language'
+            value={formData.language}
+            onChange={handleChange}
+          >
             <option value='chinese'>中文</option>
             <option value='english'>英文</option>
           </select>
