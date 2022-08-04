@@ -8,10 +8,9 @@ const Board = ({ gameState, player, name, placingShip, setPlacingShip }) => {
   let board = createEmptyBoard();
 
   // 渲染正在放置的船
-  board = placeShipOnBoard(board, placingShip);
+  board = placeShipOnBoard(board, placingShip, true);
 
-  console.log(board);
-
+  // 移动时更新坐标
   const handleMove = (index) => {
     const { row, col } = indexToCoordinate(index);
     setPlacingShip((prev) => {

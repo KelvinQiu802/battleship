@@ -26,12 +26,16 @@
   cursor: pointer;
 }
 
-.block.ship {
+.block.placing {
   background-color: rgba(255, 166, 0, 0.31);
 }
 
-.block:hover {
-  background-color: rgba(255, 166, 0, 0.275);
+.block.ship {
+  background-color: rgba(0, 0, 255, 0.299);
+}
+
+.block.forbidden {
+  background-color: rgba(255, 0, 0, 0.294);
 }
 
 .harbour {
