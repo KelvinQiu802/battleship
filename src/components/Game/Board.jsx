@@ -2,10 +2,29 @@ import {
   createEmptyBoard,
   indexToCoordinate,
   placeShipOnBoard,
+  coordinateToIndex,
 } from '../../utils/boardTools.js';
+import * as BLOCK_STATE from '../../utils/blockStates';
 
-const Board = ({ gameState, player, name, placingShip, setPlacingShip }) => {
+const Board = ({
+  gameState,
+  player,
+  name,
+  placingShip,
+  setPlacingShip,
+  placedShips,
+  setPlacedShips,
+  setAvaliableShips,
+}) => {
+  // 空棋盘
   let board = createEmptyBoard();
+
+  // 渲染已经放置的船
+  if (placedShips.length) {
+    placedShips.forEach((ship) => {
+      board = placeShipOnBoard(board, ship);
+    });
+  }
 
   // 渲染正在放置的船
   board = placeShipOnBoard(board, placingShip, true);
@@ -25,7 +44,26 @@ const Board = ({ gameState, player, name, placingShip, setPlacingShip }) => {
   };
 
   // 放置船
-  const handleClick = () => {};
+  const handleClick = () => {
+    if (placingShip) {
+      const {
+        name,
+        length,
+        direction,
+        position: { row, col },
+      } = placingShip;
+      if (board[coordinateToIndex(row, col)] !== BLOCK_STATE.FORBIDDEN) {
+        // 放船
+        setPlacedShips((prev) => [...prev, placingShip]);
+        // 移出可用船
+        setAvaliableShips((prev) =>
+          prev.filter((ship) => ship.name !== placingShip.name)
+        );
+        // 重制正在放置的船
+        setPlacingShip(null);
+      }
+    }
+  };
 
   // 右键旋转
   const handleTurn = (e) => {
