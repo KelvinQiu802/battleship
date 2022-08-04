@@ -15,14 +15,31 @@ const Game = ({ gameState, setGameState, formData }) => {
   ]);
   const [p1PlacingShip, setP1PlacingSHip] = React.useState(null);
   const [p1PlacedShip, setP1PlacedShip] = React.useState([]);
+  const [p2AvaliableShips, setP2AvaliableShips] = React.useState([
+    SHIPS.CARRIER,
+    SHIPS.BATTLESHIP,
+    SHIPS.DESTROYER,
+    SHIPS.SUBMARINE,
+    SHIPS.PATROL,
+  ]);
+  const [p2PlacingShip, setP2PlacingSHip] = React.useState(null);
+  const [p2PlacedShip, setP2PlacedShip] = React.useState([]);
+
+  console.log(p1PlacingShip);
 
   return (
     <div className='game'>
       <Header />
       <main className='area game-area'>
-        <Board player='player1' name={formData.p1Name} />
-        <Harbour p1AvaliableShips={p1AvaliableShips} />
-        <Board player='player2' name={formData.p2Name} />
+        <Board player='p1' gameState={gameState} name={formData.p1Name} />
+        <Harbour
+          gameState={gameState}
+          p1AvaliableShips={p1AvaliableShips}
+          setP1PlacingShip={setP1PlacingSHip}
+          p2AvaliableShips={p2AvaliableShips}
+          setP2PlacingShip={setP2PlacingSHip}
+        />
+        <Board player='p2' gameState={gameState} name={formData.p2Name} />
       </main>
     </div>
   );
