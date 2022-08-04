@@ -29,7 +29,12 @@ const Game = ({ gameState, setGameState, formData }) => {
     <div className='game'>
       <Header />
       <main className='area game-area'>
-        <Board player='p1' gameState={gameState} name={formData.p1Name} />
+        <Board
+          player='p1'
+          gameState={gameState}
+          name={formData.p1Name}
+          setPlacingShip={setP1PlacedShip}
+        />
         <Harbour
           gameState={gameState}
           p1PlacingShip={p1PlacingShip}
@@ -39,7 +44,12 @@ const Game = ({ gameState, setGameState, formData }) => {
           p2AvaliableShips={p2AvaliableShips}
           setP2PlacingShip={setP2PlacingSHip}
         />
-        <Board player='p2' gameState={gameState} name={formData.p2Name} />
+        <Board
+          player='p2'
+          gameState={gameState}
+          name={formData.p2Name}
+          setPlacingShip={setP2PlacingSHip}
+        />
       </main>
     </div>
   );
