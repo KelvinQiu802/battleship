@@ -39,7 +39,15 @@
 }
 
 .block.selecting {
-  background-color: pink;
+  background-color: skyblue;
+}
+
+.block.hit {
+  background-color: red;
+}
+
+.block.miss {
+  background-color: yellow;
 }
 
 .harbour {

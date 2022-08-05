@@ -130,7 +130,20 @@ export const canAttack = (board, attack) => {
   return isAttacked ? false : true;
 };
 
+// 检查是否击中
 export const checkAttack = (finalBoard, position) => {
   const index = coordinateToIndex(position.row, position.col);
   return finalBoard[index] === BLOCK_STATE.SHIP;
+};
+
+// 渲染攻击结果
+export const showAttack = (board, attack) => {
+  const boardCopy = [...board];
+  attack.forEach((item) => {
+    const index = coordinateToIndex(item.position.row, item.position.col);
+    if (item.state != BLOCK_STATE.SELECTING) {
+      boardCopy[index] = item.state;
+    }
+  });
+  return boardCopy;
 };
