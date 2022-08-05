@@ -4,6 +4,7 @@ import Board from './Board';
 import Harbour from './Harbour';
 import AttackBoard from './AttackBoard';
 import GameOver from '../GameOver/GameOver';
+import Tip from './Tip';
 import * as SHIPS from '../../utils/ships';
 import * as BLOCK_STATE from '../../utils/blockStates';
 
@@ -46,69 +47,72 @@ const Game = ({ gameState, setGameState, formData }) => {
       {gameOver ? (
         <GameOver gameState={gameState} formData={formData} />
       ) : (
-        <main className='area game-area'>
-          {isPlacing ? (
-            <Board
-              player='p1'
-              gameState={gameState}
-              setGameState={setGameState}
-              name={formData.p1Name}
-              setPlacingShip={setP1PlacingShip}
-              placingShip={p1PlacingShip}
-              placedShips={p1PlacedShips}
-              setPlacedShips={setP1PlacedShips}
-              avaliableShips={p1AvaliableShips}
-              setAvaliableShips={setP1AvaliableShips}
-              finalBoard={p1FinalBoard}
-            />
-          ) : (
-            <AttackBoard
-              player='p1'
-              name={formData.p1Name}
-              gameState={gameState}
-              setGameState={setGameState}
-              attack={p2Attack}
-              setAttack={setP2Attack}
-              finalBoard={p1FinalBoard}
-            />
-          )}
-          {isPlacing && (
-            <Harbour
-              gameState={gameState}
-              p1PlacingShip={p1PlacingShip}
-              p1AvaliableShips={p1AvaliableShips}
-              setP1PlacingShip={setP1PlacingShip}
-              p2PlacingShip={p2PlacingShip}
-              p2AvaliableShips={p2AvaliableShips}
-              setP2PlacingShip={setP2PlacingShip}
-            />
-          )}
-          {isPlacing ? (
-            <Board
-              player='p2'
-              gameState={gameState}
-              setGameState={setGameState}
-              name={formData.p2Name}
-              setPlacingShip={setP2PlacingShip}
-              placingShip={p2PlacingShip}
-              placedShips={p2PlacedShips}
-              setPlacedShips={setP2PlacedShips}
-              avaliableShips={p2AvaliableShips}
-              setAvaliableShips={setP2AvaliableShips}
-              finalBoard={p2FinalBoard}
-            />
-          ) : (
-            <AttackBoard
-              player='p2'
-              name={formData.p2Name}
-              gameState={gameState}
-              setGameState={setGameState}
-              attack={p1Attack}
-              setAttack={setP1Attack}
-              finalBoard={p2FinalBoard}
-            />
-          )}
-        </main>
+        <>
+          <main className='area game-area'>
+            {isPlacing ? (
+              <Board
+                player='p1'
+                gameState={gameState}
+                setGameState={setGameState}
+                name={formData.p1Name}
+                setPlacingShip={setP1PlacingShip}
+                placingShip={p1PlacingShip}
+                placedShips={p1PlacedShips}
+                setPlacedShips={setP1PlacedShips}
+                avaliableShips={p1AvaliableShips}
+                setAvaliableShips={setP1AvaliableShips}
+                finalBoard={p1FinalBoard}
+              />
+            ) : (
+              <AttackBoard
+                player='p1'
+                name={formData.p1Name}
+                gameState={gameState}
+                setGameState={setGameState}
+                attack={p2Attack}
+                setAttack={setP2Attack}
+                finalBoard={p1FinalBoard}
+              />
+            )}
+            {isPlacing && (
+              <Harbour
+                gameState={gameState}
+                p1PlacingShip={p1PlacingShip}
+                p1AvaliableShips={p1AvaliableShips}
+                setP1PlacingShip={setP1PlacingShip}
+                p2PlacingShip={p2PlacingShip}
+                p2AvaliableShips={p2AvaliableShips}
+                setP2PlacingShip={setP2PlacingShip}
+              />
+            )}
+            {isPlacing ? (
+              <Board
+                player='p2'
+                gameState={gameState}
+                setGameState={setGameState}
+                name={formData.p2Name}
+                setPlacingShip={setP2PlacingShip}
+                placingShip={p2PlacingShip}
+                placedShips={p2PlacedShips}
+                setPlacedShips={setP2PlacedShips}
+                avaliableShips={p2AvaliableShips}
+                setAvaliableShips={setP2AvaliableShips}
+                finalBoard={p2FinalBoard}
+              />
+            ) : (
+              <AttackBoard
+                player='p2'
+                name={formData.p2Name}
+                gameState={gameState}
+                setGameState={setGameState}
+                attack={p1Attack}
+                setAttack={setP1Attack}
+                finalBoard={p2FinalBoard}
+              />
+            )}
+          </main>
+          <Tip />
+        </>
       )}
     </div>
   );
