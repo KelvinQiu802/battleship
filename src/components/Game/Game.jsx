@@ -44,7 +44,7 @@ const Game = ({ gameState, setGameState, formData }) => {
     <div className='game'>
       <Header />
       {gameOver ? (
-        <GameOver />
+        <GameOver gameState={gameState} formData={formData} />
       ) : (
         <main className='area game-area'>
           {isPlacing ? (
