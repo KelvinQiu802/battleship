@@ -56,6 +56,10 @@ const AttackBoard = ({
         state: isHit ? BLOCK_STATE.HIT : BLOCK_STATE.MISS,
       },
     ]);
+    // 交换进攻
+    setGameState(
+      gameState.includes('p1') ? GAME_STATE.P2ATTACK : GAME_STATE.P1ATTACK
+    );
   };
 
   return (
