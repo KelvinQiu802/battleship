@@ -1,4 +1,5 @@
 import * as BLOCK_STATE from './blockStates';
+import * as SHIPS from './ships';
 
 const ROWS = 8;
 const COLS = 8;
@@ -147,4 +148,23 @@ export const showAttack = (board, attack) => {
     }
   });
   return boardCopy;
+};
+
+// 判断是否沉船
+export const checkSunk = (attack, finalBoard, row, col) => {
+  const ship = finalBoard[coordinateToIndex(row, col)];
+  if (ship === 'empty') return attack; // 没打中
+  const attackCopy = [...attack];
+  const length = SHIPS[ship.toUpperCase()].length;
+  const amount = attack.filter((item) => item.ship === ship).length;
+  if (amount === length) {
+    // 沉了
+    attackCopy.forEach((item) => {
+      if (item.ship === ship) {
+        item.state = BLOCK_STATE.SANK;
+      }
+    });
+    return attackCopy;
+  }
+  return attack;
 };

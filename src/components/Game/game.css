@@ -58,6 +58,10 @@
   background-color: deeppink;
 }
 
+.block.sank {
+  background-color: rgba(0, 0, 0, 0.549);
+}
+
 .block.forbidden {
   background-color: rgba(255, 0, 0, 0.294);
 }

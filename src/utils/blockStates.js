@@ -10,3 +10,4 @@ export const PLACING = 'placing';
 export const HIT = 'hit';
 export const MISS = 'miss';
 export const SELECTING = 'selecting';
+export const SANK = 'sank';
