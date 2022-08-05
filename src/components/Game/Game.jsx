@@ -24,6 +24,8 @@ const Game = ({ gameState, setGameState, formData }) => {
   ]);
   const [p2PlacingShip, setP2PlacingShip] = React.useState(null);
   const [p2PlacedShips, setP2PlacedShips] = React.useState([]);
+  const p1FinalBoard = React.useRef(null);
+  const p2FinalBoard = React.useRef(null);
 
   return (
     <div className='game'>
@@ -40,6 +42,7 @@ const Game = ({ gameState, setGameState, formData }) => {
           setPlacedShips={setP1PlacedShips}
           avaliableShips={p1AvaliableShips}
           setAvaliableShips={setP1AvaliableShips}
+          finalBoard={p1FinalBoard}
         />
         <Harbour
           gameState={gameState}
@@ -61,6 +64,7 @@ const Game = ({ gameState, setGameState, formData }) => {
           setPlacedShips={setP2PlacedShips}
           avaliableShips={p2AvaliableShips}
           setAvaliableShips={setP2AvaliableShips}
+          finalBoard={p2FinalBoard}
         />
       </main>
     </div>
