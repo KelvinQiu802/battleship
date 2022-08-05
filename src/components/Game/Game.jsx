@@ -111,7 +111,7 @@ const Game = ({ gameState, setGameState, formData }) => {
               />
             )}
           </main>
-          <Tip />
+          <Tip gameState={gameState} />
         </>
       )}
     </div>
