@@ -6,7 +6,7 @@ import Welcome from './components/Welcome/Welcome';
 
 const App = () => {
   // 游戏状态，游戏阶段
-  const [gameState, setGameState] = React.useState(GAME_STATE.P1ATTACK);
+  const [gameState, setGameState] = React.useState(GAME_STATE.P1PLACING);
   // 表单数据
   const [formData, setFormData] = React.useState({
     p1Name: 'Kelvin',

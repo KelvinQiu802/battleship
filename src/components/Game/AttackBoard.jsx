@@ -40,7 +40,7 @@ const AttackBoard = ({
     const { row, col } = attack[0].position;
     if (!canAttack(board, attack)) return;
     // 可以攻击
-    const isHit = checkAttack(finalBoard, attack[0].position);
+    const isHit = checkAttack(finalBoard.current, attack[0].position);
     // 添加一次进攻数据
     setAttack((prev) => [
       ...prev,
