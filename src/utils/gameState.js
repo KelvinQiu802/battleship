@@ -5,3 +5,5 @@ export const READY = 'ready';
 export const START = 'start';
 export const P1ATTACK = 'p1attack';
 export const P2ATTACK = 'p2attack';
+export const P1WIN = 'p1win';
+export const P2WIN = 'p2win';

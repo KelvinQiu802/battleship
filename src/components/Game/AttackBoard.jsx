@@ -31,6 +31,11 @@ const AttackBoard = ({
   // 渲染已经进行的攻击
   board = showAttack(board, attack);
 
+  // 判断输赢
+  if (attack.filter((item) => item.state === BLOCK_STATE.HIT).length === 17) {
+    setGameState(player === 'p1' ? GAME_STATE.P2WIN : GAME_STATE.P1WIN);
+  }
+
   const handleMove = (index) => {
     const { row, col } = indexToCoordinate(index);
     setAttack((prev) => {
