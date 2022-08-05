@@ -23,6 +23,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
   let boardCopy = [...board];
   if (ship?.position.row != null) {
     const {
+      name,
       length,
       direction,
       position: { row, col },
@@ -35,7 +36,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
             for (let i = 0; i < length; i++) {
               boardCopy[coordinateToIndex(row, col + i)] = placing
                 ? BLOCK_STATE.PLACING
-                : BLOCK_STATE.SHIP;
+                : name;
             }
             break;
           case 'OVERFLOW':
@@ -57,7 +58,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
             for (let i = 0; i < length; i++) {
               boardCopy[coordinateToIndex(row + i, col)] = placing
                 ? BLOCK_STATE.PLACING
-                : BLOCK_STATE.SHIP;
+                : name;
             }
             break;
           case 'OVERFLOW':

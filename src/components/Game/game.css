@@ -38,6 +38,26 @@
   background-color: rgba(0, 0, 255, 0.299);
 }
 
+.block.Carrier {
+  background-color: aqua;
+}
+
+.block.Battleship {
+  background-color: brown;
+}
+
+.block.Destroyer {
+  background-color: chartreuse;
+}
+
+.block.Submarine {
+  background-color: coral;
+}
+
+.block.Patrol {
+  background-color: deeppink;
+}
+
 .block.forbidden {
   background-color: rgba(255, 0, 0, 0.294);
 }
