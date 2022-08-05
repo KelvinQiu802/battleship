@@ -86,7 +86,7 @@ export const canBePlaced = (board, length, direction, row, col) => {
       if (col + length <= COLS) {
         // 没其他船
         for (let i = 0; i < length; i++) {
-          if (board[coordinateToIndex(row, +col + i)] == BLOCK_STATE.SHIP)
+          if (board[coordinateToIndex(row, +col + i)] !== BLOCK_STATE.EMTPY)
             // 有其他船
             return 'OCCUPIED';
         }
@@ -97,7 +97,7 @@ export const canBePlaced = (board, length, direction, row, col) => {
     case 'VERTICAL':
       if (row + length <= ROWS) {
         for (let i = 0; i < length; i++) {
-          if (board[coordinateToIndex(row + i, col)] == BLOCK_STATE.SHIP)
+          if (board[coordinateToIndex(row + i, col)] !== BLOCK_STATE.EMTPY)
             return 'OCCUPIED';
         }
         return 'OK';
@@ -134,7 +134,7 @@ export const canAttack = (board, attack) => {
 // 检查是否击中
 export const checkAttack = (finalBoard, position) => {
   const index = coordinateToIndex(position.row, position.col);
-  return finalBoard[index] === BLOCK_STATE.SHIP;
+  return finalBoard[index] !== BLOCK_STATE.EMTPY;
 };
 
 // 渲染攻击结果
