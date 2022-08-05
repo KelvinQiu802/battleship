@@ -61,6 +61,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             player='p1'
             name={formData.p1Name}
             gameState={gameState}
+            setGameState={setGameState}
             attack={p2Attack}
             setAttack={setP2Attack}
             finalBoard={p1FinalBoard}
@@ -96,6 +97,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             player='p2'
             name={formData.p2Name}
             gameState={gameState}
+            setGameState={setGameState}
             attack={p1Attack}
             setAttack={setP1Attack}
             finalBoard={p2FinalBoard}

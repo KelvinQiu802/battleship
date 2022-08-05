@@ -7,6 +7,7 @@ import {
   checkAttack,
   showAttack,
 } from '../../utils/boardTools.js';
+import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
 
@@ -14,6 +15,7 @@ const AttackBoard = ({
   player,
   name,
   gameState,
+  setGameState,
   attack,
   setAttack,
   finalBoard,
@@ -57,23 +59,17 @@ const AttackBoard = ({
   return (
     <div className='board-container'>
       <h2 className='board-title'>{`${name}'s Board`}</h2>
-      {gameState.includes(player) ? (
-        <h1 className='waiting-title'>
-          等待玩家{player === 'p1' ? '一' : '二'}攻击
-        </h1>
-      ) : (
-        <div className='board' onContextMenu={(e) => e.preventDefault()}>
-          {board.map((state, index) => (
-            <div
-              key={index}
-              className={`block ${state}`}
-              data-index={index}
-              onMouseMove={() => handleMove(index)}
-              onClick={hanldeAttack}
-            ></div>
-          ))}
-        </div>
-      )}
+      <div className='board' onContextMenu={(e) => e.preventDefault()}>
+        {board.map((state, index) => (
+          <div
+            key={index}
+            className={`block ${state}`}
+            data-index={index}
+            onMouseMove={() => handleMove(index)}
+            onClick={hanldeAttack}
+          ></div>
+        ))}
+      </div>
     </div>
   );
 };
