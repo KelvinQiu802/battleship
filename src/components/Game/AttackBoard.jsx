@@ -20,6 +20,8 @@ const AttackBoard = ({
   setAttack,
   finalBoard,
 }) => {
+  const isMyTurn = gameState.includes(player);
+
   // 创建空棋盘
   let board = createEmptyBoard();
 
@@ -59,14 +61,17 @@ const AttackBoard = ({
   return (
     <div className='board-container'>
       <h2 className='board-title'>{`${name}'s Board`}</h2>
-      <div className='board' onContextMenu={(e) => e.preventDefault()}>
+      <div
+        className={`board ${isMyTurn ? 'disabled' : ''}`}
+        onContextMenu={(e) => e.preventDefault()}
+      >
         {board.map((state, index) => (
           <div
             key={index}
             className={`block ${state}`}
             data-index={index}
-            onMouseMove={() => handleMove(index)}
-            onClick={hanldeAttack}
+            onMouseMove={isMyTurn ? () => {} : () => handleMove(index)}
+            onClick={isMyTurn ? () => {} : hanldeAttack}
           ></div>
         ))}
       </div>
