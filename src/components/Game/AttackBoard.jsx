@@ -6,6 +6,7 @@ import {
   canAttack,
   checkAttack,
   showAttack,
+  checkSunk,
 } from '../../utils/boardTools.js';
 import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
@@ -32,10 +33,11 @@ const AttackBoard = ({
   board = showAttack(board, attack);
 
   // 判断输赢
-  if (attack.filter((item) => item.state === BLOCK_STATE.HIT).length === 17) {
+  if (attack.filter((item) => item.state === BLOCK_STATE.SANK).length === 17) {
     setGameState(player === 'p1' ? GAME_STATE.P2WIN : GAME_STATE.P1WIN);
   }
 
+  // 正在选择要攻击的坐标
   const handleMove = (index) => {
     const { row, col } = indexToCoordinate(index);
     setAttack((prev) => {
@@ -59,8 +61,12 @@ const AttackBoard = ({
           col: col,
         },
         state: isHit ? BLOCK_STATE.HIT : BLOCK_STATE.MISS,
+        // miss时，ship的值为empty
+        ship: finalBoard.current[coordinateToIndex(row, col)],
       },
     ]);
+    // 判断是否沉船, 并更新状态
+    setAttack((prev) => checkSunk(prev, finalBoard.current, row, col));
     // 交换进攻
     setGameState(
       gameState.includes('p1') ? GAME_STATE.P2ATTACK : GAME_STATE.P1ATTACK

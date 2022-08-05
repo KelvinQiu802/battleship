@@ -1,4 +1,5 @@
 import * as BLOCK_STATE from './blockStates';
+import * as SHIPS from './ships';
 
 const ROWS = 8;
 const COLS = 8;
@@ -23,6 +24,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
   let boardCopy = [...board];
   if (ship?.position.row != null) {
     const {
+      name,
       length,
       direction,
       position: { row, col },
@@ -35,7 +37,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
             for (let i = 0; i < length; i++) {
               boardCopy[coordinateToIndex(row, col + i)] = placing
                 ? BLOCK_STATE.PLACING
-                : BLOCK_STATE.SHIP;
+                : name;
             }
             break;
           case 'OVERFLOW':
@@ -57,7 +59,7 @@ export const placeShipOnBoard = (board, ship, placing = false) => {
             for (let i = 0; i < length; i++) {
               boardCopy[coordinateToIndex(row + i, col)] = placing
                 ? BLOCK_STATE.PLACING
-                : BLOCK_STATE.SHIP;
+                : name;
             }
             break;
           case 'OVERFLOW':
@@ -85,7 +87,7 @@ export const canBePlaced = (board, length, direction, row, col) => {
       if (col + length <= COLS) {
         // 没其他船
         for (let i = 0; i < length; i++) {
-          if (board[coordinateToIndex(row, +col + i)] == BLOCK_STATE.SHIP)
+          if (board[coordinateToIndex(row, +col + i)] !== BLOCK_STATE.EMTPY)
             // 有其他船
             return 'OCCUPIED';
         }
@@ -96,7 +98,7 @@ export const canBePlaced = (board, length, direction, row, col) => {
     case 'VERTICAL':
       if (row + length <= ROWS) {
         for (let i = 0; i < length; i++) {
-          if (board[coordinateToIndex(row + i, col)] == BLOCK_STATE.SHIP)
+          if (board[coordinateToIndex(row + i, col)] !== BLOCK_STATE.EMTPY)
             return 'OCCUPIED';
         }
         return 'OK';
@@ -133,7 +135,7 @@ export const canAttack = (board, attack) => {
 // 检查是否击中
 export const checkAttack = (finalBoard, position) => {
   const index = coordinateToIndex(position.row, position.col);
-  return finalBoard[index] === BLOCK_STATE.SHIP;
+  return finalBoard[index] !== BLOCK_STATE.EMTPY;
 };
 
 // 渲染攻击结果
@@ -146,4 +148,23 @@ export const showAttack = (board, attack) => {
     }
   });
   return boardCopy;
+};
+
+// 判断是否沉船
+export const checkSunk = (attack, finalBoard, row, col) => {
+  const ship = finalBoard[coordinateToIndex(row, col)];
+  if (ship === 'empty') return attack; // 没打中
+  const attackCopy = [...attack];
+  const length = SHIPS[ship.toUpperCase()].length;
+  const amount = attack.filter((item) => item.ship === ship).length;
+  if (amount === length) {
+    // 沉了
+    attackCopy.forEach((item) => {
+      if (item.ship === ship) {
+        item.state = BLOCK_STATE.SANK;
+      }
+    });
+    return attackCopy;
+  }
+  return attack;
 };
