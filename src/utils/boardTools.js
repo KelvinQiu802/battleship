@@ -107,14 +107,30 @@ export const canBePlaced = (board, length, direction, row, col) => {
 
 // 渲染正在选择的攻击位置
 // selecting是attack数组的第一个元素
-export const showSelectiongBlock = (board, selecting) => {
+export const showSelectiongBlock = (board, position) => {
+  if (position.row === null) return board;
   const boardCopy = [...board];
-  const index = coordinateToIndex(
-    selecting.position.row,
-    selecting.position.col
-  );
+  const index = coordinateToIndex(position.row, position.col);
   if (boardCopy[index] === BLOCK_STATE.EMTPY) {
     boardCopy[index] = BLOCK_STATE.SELECTING;
   }
   return boardCopy;
+};
+
+// 检查是否可以攻击
+export const canAttack = (board, attack) => {
+  const { row, col } = attack[0].position;
+  const attackCopy = [...attack];
+  attackCopy.shift();
+  // 是否已经被攻击过
+  const isAttacked = attackCopy.find(
+    (item) => item.position.row === row && item.position.col === col
+  );
+  // 已经攻击过的不能重复被攻击
+  return isAttacked ? false : true;
+};
+
+export const checkAttack = (finalBoard, position) => {
+  const index = coordinateToIndex(position.row, position.col);
+  return finalBoard[index] === BLOCK_STATE.SHIP;
 };

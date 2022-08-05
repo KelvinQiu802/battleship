@@ -3,35 +3,51 @@ import {
   indexToCoordinate,
   coordinateToIndex,
   showSelectiongBlock,
+  canAttack,
+  checkAttack,
 } from '../../utils/boardTools.js';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
 
-const AttackBoard = ({ player, name, gameState, attack, setAttack }) => {
+const AttackBoard = ({
+  player,
+  name,
+  gameState,
+  attack,
+  setAttack,
+  finalBoard,
+}) => {
   // 创建空棋盘
   let board = createEmptyBoard();
 
   // 渲染正在选择方块
-  board = showSelectiongBlock(board, attack[0]);
+  board = showSelectiongBlock(board, attack[0].position);
 
   const handleMove = (index) => {
     const { row, col } = indexToCoordinate(index);
-    setAttack((prev) =>
-      prev.map((item) => {
-        if (item.state === BLOCK_STATE.SELECTING) {
-          return {
-            ...item,
-            position: {
-              row: row,
-              col: col,
-            },
-          };
-        }
-      })
-    );
+    setAttack((prev) => {
+      const copy = [...prev];
+      copy[0].position = { row: row, col: col };
+      return copy;
+    });
   };
 
-  const hanldeAttack = () => {};
+  const hanldeAttack = () => {
+    const { row, col } = attack[0].position;
+    if (!canAttack(board, attack)) return;
+    // 可以攻击
+    const isHit = checkAttack(finalBoard, attack[0].position);
+    setAttack((prev) => [
+      ...prev,
+      {
+        position: {
+          row: row,
+          col: col,
+        },
+        state: isHit ? BLOCK_STATE.HIT : BLOCK_STATE.MISS,
+      },
+    ]);
+  };
 
   return (
     <div className='board-container'>
