@@ -18,6 +18,7 @@ const Board = ({
   setPlacedShips,
   avaliableShips,
   setAvaliableShips,
+  finalBoard,
 }) => {
   // 空棋盘
   let board = createEmptyBoard();
@@ -33,8 +34,11 @@ const Board = ({
   board = placeShipOnBoard(board, placingShip, true);
 
   // 更新游戏状态
-  if (player === 'p1' && avaliableShips.length === 0) {
-    setGameState(GAME_STATE.P2PLACING);
+  if (!avaliableShips.length) {
+    finalBoard.current = board;
+    player === 'p1'
+      ? setGameState(GAME_STATE.P2PLACING)
+      : setGameState(GAME_STATE.P1ATTACK);
   }
 
   // 移动时更新坐标

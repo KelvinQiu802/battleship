@@ -5,7 +5,13 @@ import Header from '../Header';
 const Welcome = ({ setGameState, formData, setFormData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
-    setGameState(GAME_STATE.P1PLACING);
+    if (
+      formData.p1Name &&
+      formData.p2Name &&
+      formData.p1Name !== formData.p2Name
+    ) {
+      setGameState(GAME_STATE.P1PLACING);
+    }
   };
 
   const handleChange = (e) => {

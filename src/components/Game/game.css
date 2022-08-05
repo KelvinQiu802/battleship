@@ -8,6 +8,11 @@
   display: flex;
   width: 328px;
   flex-wrap: wrap;
+  cursor: pointer;
+}
+
+.board.disabled {
+  cursor: not-allowed;
 }
 
 .board-container {
@@ -23,7 +28,6 @@
   height: 40px;
   border: 1px solid black;
   margin: 0 -1px -1px 0;
-  cursor: pointer;
 }
 
 .block.placing {
@@ -36,6 +40,18 @@
 
 .block.forbidden {
   background-color: rgba(255, 0, 0, 0.294);
+}
+
+.block.selecting {
+  background-color: skyblue;
+}
+
+.block.hit {
+  background-color: red;
+}
+
+.block.miss {
+  background-color: yellow;
 }
 
 .harbour {
