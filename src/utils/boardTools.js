@@ -104,3 +104,17 @@ export const canBePlaced = (board, length, direction, row, col) => {
       return 'OVERFLOW';
   }
 };
+
+// 渲染正在选择的攻击位置
+// selecting是attack数组的第一个元素
+export const showSelectiongBlock = (board, selecting) => {
+  const boardCopy = [...board];
+  const index = coordinateToIndex(
+    selecting.position.row,
+    selecting.position.col
+  );
+  if (boardCopy[index] === BLOCK_STATE.EMTPY) {
+    boardCopy[index] = BLOCK_STATE.SELECTING;
+  }
+  return boardCopy;
+};

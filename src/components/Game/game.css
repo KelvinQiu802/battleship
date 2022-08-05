@@ -38,6 +38,10 @@
   background-color: rgba(255, 0, 0, 0.294);
 }
 
+.block.selecting {
+  background-color: pink;
+}
+
 .harbour {
   width: 180px;
   border: 1px solid black;
