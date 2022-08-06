@@ -4,12 +4,14 @@ import {
   placeShipOnBoard,
   coordinateToIndex,
 } from '../../utils/boardTools.js';
+import { computerPlacingShip } from '../../utils/computerTools';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
 
 const Board = ({
   gameState,
   setGameState,
+  formData,
   player,
   name,
   placingShip,
@@ -19,26 +21,41 @@ const Board = ({
   avaliableShips,
   setAvaliableShips,
   finalBoard,
+  comBoard,
 }) => {
-  // 空棋盘
-  let board = createEmptyBoard();
+  // 是否是单人模式
+  const isSingleMode = formData.playMode === 'singlePlayer';
+  const isP1 = gameState.includes('p1');
 
-  // 渲染已经放置的船
-  if (placedShips.length) {
-    placedShips.forEach((ship) => {
-      board = placeShipOnBoard(board, ship);
-    });
-  }
+  let board;
 
-  // 渲染正在放置的船
-  board = placeShipOnBoard(board, placingShip, true);
+  if (isSingleMode && !isP1) {
+    // 电脑自动放船
+    board = computerPlacingShip(avaliableShips);
+    comBoard.current = board;
+    setGameState(GAME_STATE.P1ATTACK);
+  } else {
+    // 空棋盘
+    board = createEmptyBoard();
 
-  // 更新游戏状态
-  if (!avaliableShips.length) {
-    finalBoard.current = board;
-    player === 'p1'
-      ? setGameState(GAME_STATE.P2PLACING)
-      : setGameState(GAME_STATE.P1ATTACK);
+    // 渲染已经放置的船
+    if (placedShips.length) {
+      placedShips.forEach((ship) => {
+        board = placeShipOnBoard(board, ship);
+      });
+    }
+
+    // 渲染正在放置的船
+    board = placeShipOnBoard(board, placingShip, true);
+
+    // 更新游戏状态
+    if (!avaliableShips.length) {
+      finalBoard.current = board;
+      console.log(finalBoard.current);
+      player === 'p1'
+        ? setGameState(GAME_STATE.P2PLACING)
+        : setGameState(GAME_STATE.P1ATTACK);
+    }
   }
 
   // 移动时更新坐标
@@ -96,9 +113,7 @@ const Board = ({
     <div className='board-container'>
       <h2 className='board-title'>{`${name}'s Board`}</h2>
       {!gameState.includes(player) ? (
-        <h1 className='waiting-title'>
-          等待玩家{gameState.includes('p1') ? '一' : '二'}放置
-        </h1>
+        <h1 className='waiting-title'>等待玩家{isP1 ? '一' : '二'}放置</h1>
       ) : (
         <div className='board' onContextMenu={(e) => e.preventDefault()}>
           {board.map((state, index) => (
