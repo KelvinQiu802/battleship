@@ -37,6 +37,9 @@ const Game = ({ gameState, setGameState, formData }) => {
   const p1FinalBoard = React.useRef(null);
   const p2FinalBoard = React.useRef(null);
 
+  console.log('P1: ', p1FinalBoard);
+  console.log('P2: ', p2FinalBoard);
+
   // 判断游戏阶段
   const isPlacing = gameState.includes('placing');
   const gameOver = gameState.includes('win');
@@ -63,6 +66,7 @@ const Game = ({ gameState, setGameState, formData }) => {
                 avaliableShips={p1AvaliableShips}
                 setAvaliableShips={setP1AvaliableShips}
                 finalBoard={p1FinalBoard}
+                comBoard={p2FinalBoard}
               />
             ) : (
               <AttackBoard
@@ -100,6 +104,7 @@ const Game = ({ gameState, setGameState, formData }) => {
                 avaliableShips={p2AvaliableShips}
                 setAvaliableShips={setP2AvaliableShips}
                 finalBoard={p2FinalBoard}
+                comBoard={p2FinalBoard}
               />
             ) : (
               <AttackBoard

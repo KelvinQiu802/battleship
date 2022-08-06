@@ -21,6 +21,7 @@ const Board = ({
   avaliableShips,
   setAvaliableShips,
   finalBoard,
+  comBoard,
 }) => {
   // 是否是单人模式
   const isSingleMode = formData.playMode === 'singlePlayer';
@@ -31,7 +32,7 @@ const Board = ({
   if (isSingleMode && !isP1) {
     // 电脑自动放船
     board = computerPlacingShip(avaliableShips);
-    finalBoard.current = board;
+    comBoard.current = board;
     setGameState(GAME_STATE.P1ATTACK);
   } else {
     // 空棋盘
@@ -50,6 +51,7 @@ const Board = ({
     // 更新游戏状态
     if (!avaliableShips.length) {
       finalBoard.current = board;
+      console.log(finalBoard.current);
       player === 'p1'
         ? setGameState(GAME_STATE.P2PLACING)
         : setGameState(GAME_STATE.P1ATTACK);
@@ -119,9 +121,9 @@ const Board = ({
               key={index}
               className={`block ${state}`}
               data-index={index}
-              onMouseMove={isSingleMode ? () => handleMove(index) : () => {}}
-              onMouseDown={isSingleMode ? handleTurn : () => {}}
-              onClick={isSingleMode ? handleClick : () => {}}
+              onMouseMove={() => handleMove(index)}
+              onMouseDown={handleTurn}
+              onClick={handleClick}
             ></div>
           ))}
         </div>
