@@ -24,14 +24,15 @@ const Board = ({
 }) => {
   // 是否是单人模式
   const isSingleMode = formData.playMode === 'singlePlayer';
+  const isP1 = gameState.includes('p1');
 
   let board;
 
-  if (isSingleMode && player == 'p2') {
+  if (isSingleMode && !isP1) {
     // 电脑自动放船
-    // 只要赋值finalboard，然后切换游戏状态即可
     board = computerPlacingShip(avaliableShips);
-    console.log(board);
+    finalBoard.current = board;
+    setGameState(GAME_STATE.P1ATTACK);
   } else {
     // 空棋盘
     board = createEmptyBoard();
@@ -110,9 +111,7 @@ const Board = ({
     <div className='board-container'>
       <h2 className='board-title'>{`${name}'s Board`}</h2>
       {!gameState.includes(player) ? (
-        <h1 className='waiting-title'>
-          等待玩家{gameState.includes('p1') ? '一' : '二'}放置
-        </h1>
+        <h1 className='waiting-title'>等待玩家{isP1 ? '一' : '二'}放置</h1>
       ) : (
         <div className='board' onContextMenu={(e) => e.preventDefault()}>
           {board.map((state, index) => (
