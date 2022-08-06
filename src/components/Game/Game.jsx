@@ -52,6 +52,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             {isPlacing ? (
               <Board
                 player='p1'
+                formData={formData}
                 gameState={gameState}
                 setGameState={setGameState}
                 name={formData.p1Name}
@@ -88,6 +89,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             {isPlacing ? (
               <Board
                 player='p2'
+                formData={formData}
                 gameState={gameState}
                 setGameState={setGameState}
                 name={formData.p2Name}

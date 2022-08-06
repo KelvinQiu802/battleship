@@ -10,6 +10,7 @@ import * as GAME_STATE from '../../utils/gameState';
 const Board = ({
   gameState,
   setGameState,
+  formData,
   player,
   name,
   placingShip,
@@ -20,6 +21,9 @@ const Board = ({
   setAvaliableShips,
   finalBoard,
 }) => {
+  // 是否是单人模式
+  const isSingleMode = formData.playMode === 'singlePlayer';
+
   // 空棋盘
   let board = createEmptyBoard();
 
@@ -36,9 +40,13 @@ const Board = ({
   // 更新游戏状态
   if (!avaliableShips.length) {
     finalBoard.current = board;
-    player === 'p1'
-      ? setGameState(GAME_STATE.P2PLACING)
-      : setGameState(GAME_STATE.P1ATTACK);
+    if (player === 'p1' && isSingleMode) {
+      setGameState(GAME_STATE.COMPUTER_PLACING);
+    } else if (player === 'p1') {
+      setGameState(GAME_STATE.P2PLACING);
+    } else {
+      setGameState(GAME_STATE.P1ATTACK);
+    }
   }
 
   // 移动时更新坐标

@@ -5,6 +5,11 @@ import Header from '../Header';
 const Welcome = ({ setGameState, formData, setFormData }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (formData.playMode === 'singlePlayer') {
+      setFormData((prev) => {
+        return { ...prev, p2Name: 'Computer' };
+      });
+    }
     if (
       formData.p1Name &&
       formData.p2Name &&
