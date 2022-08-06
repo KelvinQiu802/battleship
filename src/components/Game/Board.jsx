@@ -4,6 +4,7 @@ import {
   placeShipOnBoard,
   coordinateToIndex,
 } from '../../utils/boardTools.js';
+import { computerPlacingShip } from '../../utils/computerTools';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
 
@@ -24,28 +25,33 @@ const Board = ({
   // 是否是单人模式
   const isSingleMode = formData.playMode === 'singlePlayer';
 
-  // 空棋盘
-  let board = createEmptyBoard();
+  let board;
 
-  // 渲染已经放置的船
-  if (placedShips.length) {
-    placedShips.forEach((ship) => {
-      board = placeShipOnBoard(board, ship);
-    });
-  }
+  if (isSingleMode && player == 'p2') {
+    // 电脑自动放船
+    // 只要赋值finalboard，然后切换游戏状态即可
+    board = computerPlacingShip(avaliableShips);
+    console.log(board);
+  } else {
+    // 空棋盘
+    board = createEmptyBoard();
 
-  // 渲染正在放置的船
-  board = placeShipOnBoard(board, placingShip, true);
+    // 渲染已经放置的船
+    if (placedShips.length) {
+      placedShips.forEach((ship) => {
+        board = placeShipOnBoard(board, ship);
+      });
+    }
 
-  // 更新游戏状态
-  if (!avaliableShips.length) {
-    finalBoard.current = board;
-    if (player === 'p1' && isSingleMode) {
-      setGameState(GAME_STATE.COMPUTER_PLACING);
-    } else if (player === 'p1') {
-      setGameState(GAME_STATE.P2PLACING);
-    } else {
-      setGameState(GAME_STATE.P1ATTACK);
+    // 渲染正在放置的船
+    board = placeShipOnBoard(board, placingShip, true);
+
+    // 更新游戏状态
+    if (!avaliableShips.length) {
+      finalBoard.current = board;
+      player === 'p1'
+        ? setGameState(GAME_STATE.P2PLACING)
+        : setGameState(GAME_STATE.P1ATTACK);
     }
   }
 
@@ -114,9 +120,9 @@ const Board = ({
               key={index}
               className={`block ${state}`}
               data-index={index}
-              onMouseMove={() => handleMove(index)}
-              onMouseDown={handleTurn}
-              onClick={handleClick}
+              onMouseMove={isSingleMode ? () => handleMove(index) : () => {}}
+              onMouseDown={isSingleMode ? handleTurn : () => {}}
+              onClick={isSingleMode ? handleClick : () => {}}
             ></div>
           ))}
         </div>
