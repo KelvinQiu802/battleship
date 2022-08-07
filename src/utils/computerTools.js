@@ -42,3 +42,26 @@ export const computerPlacingShip = (avaliableShips) => {
   });
   return board;
 };
+
+// 检查是否可以攻击
+export const canAttack = (attack, row, col) => {
+  const attackCopy = [...attack];
+  attackCopy.shift();
+  // 是否已经被攻击过
+  const isAttacked = attackCopy.find(
+    (item) => item.position.row === row && item.position.col === col
+  );
+  // 已经攻击过的不能重复被攻击
+  return isAttacked ? false : true;
+};
+
+// 随机攻击
+export const randomAttack = (attack) => {
+  while (true) {
+    const row = getRandInt(0, 7);
+    const col = getRandInt(0, 7);
+    if (canAttack(attack, row, col)) {
+      return { row: row, col: col };
+    }
+  }
+};

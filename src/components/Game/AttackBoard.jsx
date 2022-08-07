@@ -8,6 +8,7 @@ import {
   showAttack,
   checkSunk,
 } from '../../utils/boardTools.js';
+import { randomAttack } from '../../utils/computerTools';
 import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
@@ -15,6 +16,7 @@ import * as GAME_STATE from '../../utils/gameState';
 const AttackBoard = ({
   player,
   name,
+  formData,
   gameState,
   setGameState,
   attack,
@@ -22,6 +24,9 @@ const AttackBoard = ({
   finalBoard,
 }) => {
   const isMyTurn = gameState.includes(player);
+  const isSingleMode = formData.playMode === 'singlePlayer';
+  const isComputer = gameState === GAME_STATE.P2ATTACK;
+  const potentialTargets = React.useRef([]); // 记录潜在的打击目标
 
   // 创建空棋盘
   let board = createEmptyBoard();
@@ -31,6 +36,36 @@ const AttackBoard = ({
 
   // 渲染已经进行的攻击
   board = showAttack(board, attack);
+
+  if (isSingleMode && isComputer) {
+    console.log(1);
+    // 电脑攻击
+    let attackPosition;
+    if (!potentialTargets.current.length) {
+      // 没有潜在打击目标，随机进攻
+      attackPosition = randomAttack(attack);
+    } else {
+      // 随机攻击潜在目标
+    }
+    const isHit = checkAttack(finalBoard.current, attackPosition);
+    const { row, col } = attackPosition;
+    setAttack((prev) => [
+      ...prev,
+      {
+        position: {
+          row: row,
+          col: col,
+        },
+        state: isHit ? BLOCK_STATE.HIT : BLOCK_STATE.MISS,
+        // miss时，ship的值为empty
+        ship: finalBoard.current[coordinateToIndex(row, col)],
+      },
+    ]);
+    // 判断是否沉船
+    setAttack((prev) => checkSunk(prev, finalBoard.current, row, col));
+    // 交换攻击
+    setGameState(GAME_STATE.P1ATTACK);
+  }
 
   // 判断输赢
   if (attack.filter((item) => item.state === BLOCK_STATE.SANK).length === 17) {
@@ -49,7 +84,7 @@ const AttackBoard = ({
 
   const hanldeAttack = () => {
     const { row, col } = attack[0].position;
-    if (!canAttack(board, attack)) return;
+    if (!canAttack(attack)) return;
     // 可以攻击
     const isHit = checkAttack(finalBoard.current, attack[0].position);
     // 添加一次进攻数据

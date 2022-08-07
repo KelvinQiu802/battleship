@@ -120,7 +120,7 @@ export const showSelectiongBlock = (board, position) => {
 };
 
 // 检查是否可以攻击
-export const canAttack = (board, attack) => {
+export const canAttack = (attack) => {
   const { row, col } = attack[0].position;
   const attackCopy = [...attack];
   attackCopy.shift();
