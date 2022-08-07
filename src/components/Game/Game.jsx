@@ -37,9 +37,6 @@ const Game = ({ gameState, setGameState, formData }) => {
   const p1FinalBoard = React.useRef(null);
   const p2FinalBoard = React.useRef(null);
 
-  console.log('P1: ', p1FinalBoard);
-  console.log('P2: ', p2FinalBoard);
-
   // 判断游戏阶段
   const isPlacing = gameState.includes('placing');
   const gameOver = gameState.includes('win');
@@ -72,11 +69,15 @@ const Game = ({ gameState, setGameState, formData }) => {
               <AttackBoard
                 player='p1'
                 name={formData.p1Name}
+                formData={formData}
                 gameState={gameState}
                 setGameState={setGameState}
                 attack={p2Attack}
+                comAttack={p2Attack}
+                setComAttack={setP2Attack}
                 setAttack={setP2Attack}
                 finalBoard={p1FinalBoard}
+                p1FinalBoard={p1FinalBoard}
               />
             )}
             {isPlacing && (
@@ -110,11 +111,15 @@ const Game = ({ gameState, setGameState, formData }) => {
               <AttackBoard
                 player='p2'
                 name={formData.p2Name}
+                formData={formData}
                 gameState={gameState}
                 setGameState={setGameState}
                 attack={p1Attack}
+                comAttack={p2Attack}
+                setComAttack={setP2Attack}
                 setAttack={setP1Attack}
                 finalBoard={p2FinalBoard}
+                p1FinalBoard={p1FinalBoard}
               />
             )}
           </main>

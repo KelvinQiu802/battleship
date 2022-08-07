@@ -8,6 +8,11 @@ import {
   showAttack,
   checkSunk,
 } from '../../utils/boardTools.js';
+import {
+  randomAttack,
+  addPotentialTarget,
+  attackPotentialTarget,
+} from '../../utils/computerTools';
 import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
@@ -15,13 +20,21 @@ import * as GAME_STATE from '../../utils/gameState';
 const AttackBoard = ({
   player,
   name,
+  formData,
   gameState,
   setGameState,
   attack,
   setAttack,
   finalBoard,
+  comAttack,
+  setComAttack,
+  p1FinalBoard,
 }) => {
+  // 通过Ref在一次快照内，记录游戏状态的更新
+  const state = React.useRef(gameState);
   const isMyTurn = gameState.includes(player);
+  const isSingleMode = formData.playMode === 'singlePlayer';
+  const potentialTargets = React.useRef([]); // 记录潜在的打击目标
 
   // 创建空棋盘
   let board = createEmptyBoard();
@@ -31,6 +44,52 @@ const AttackBoard = ({
 
   // 渲染已经进行的攻击
   board = showAttack(board, attack);
+
+  // 电脑攻击
+  React.useEffect(() => {
+    if (isSingleMode && state.current === GAME_STATE.P2ATTACK) {
+      let attackPosition;
+
+      if (!potentialTargets.current.length) {
+        // 没有潜在打击目标，随机进攻
+        attackPosition = randomAttack(comAttack);
+      } else {
+        // 随机攻击潜在目标
+        attackPosition = attackPotentialTarget(potentialTargets, comAttack);
+      }
+
+      const isHit = checkAttack(p1FinalBoard.current, attackPosition);
+      if (isHit) {
+        // 如果击中，添加潜在目标
+        potentialTargets.current = addPotentialTarget(
+          attackPosition,
+          comAttack,
+          potentialTargets
+        );
+      }
+
+      const { row, col } = attackPosition;
+      setComAttack((prev) => [
+        ...prev,
+        {
+          position: {
+            row: row,
+            col: col,
+          },
+          state: isHit ? BLOCK_STATE.HIT : BLOCK_STATE.MISS,
+          // miss时，ship的值为empty
+          ship: p1FinalBoard.current[coordinateToIndex(row, col)],
+        },
+      ]);
+      // 判断是否沉船
+      setComAttack((prev) =>
+        checkSunk(prev, p1FinalBoard.current, row, col, potentialTargets)
+      );
+      // 交换攻击
+      setGameState(GAME_STATE.P1ATTACK);
+      state.current = GAME_STATE.P1ATTACK;
+    }
+  }, [gameState]);
 
   // 判断输赢
   if (attack.filter((item) => item.state === BLOCK_STATE.SANK).length === 17) {
@@ -49,7 +108,7 @@ const AttackBoard = ({
 
   const hanldeAttack = () => {
     const { row, col } = attack[0].position;
-    if (!canAttack(board, attack)) return;
+    if (!canAttack(attack)) return;
     // 可以攻击
     const isHit = checkAttack(finalBoard.current, attack[0].position);
     // 添加一次进攻数据
@@ -71,6 +130,9 @@ const AttackBoard = ({
     setGameState(
       gameState.includes('p1') ? GAME_STATE.P2ATTACK : GAME_STATE.P1ATTACK
     );
+    state.current = gameState.includes('p1')
+      ? GAME_STATE.P2ATTACK
+      : GAME_STATE.P1ATTACK;
   };
 
   return (

@@ -51,7 +51,6 @@ const Board = ({
     // 更新游戏状态
     if (!avaliableShips.length) {
       finalBoard.current = board;
-      console.log(finalBoard.current);
       player === 'p1'
         ? setGameState(GAME_STATE.P2PLACING)
         : setGameState(GAME_STATE.P1ATTACK);

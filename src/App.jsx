@@ -11,6 +11,7 @@ const App = () => {
   const [formData, setFormData] = React.useState({
     p1Name: 'Kelvin',
     p2Name: 'Lydia',
+    // playMode: 'multiPlayer',
     playMode: 'singlePlayer',
     language: 'chinese',
   });
