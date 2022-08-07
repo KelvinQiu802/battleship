@@ -73,8 +73,11 @@ const Game = ({ gameState, setGameState, formData }) => {
                 gameState={gameState}
                 setGameState={setGameState}
                 attack={p2Attack}
+                comAttack={p2Attack}
+                setComAttack={setP2Attack}
                 setAttack={setP2Attack}
                 finalBoard={p1FinalBoard}
+                p1FinalBoard={p1FinalBoard}
               />
             )}
             {isPlacing && (
@@ -112,8 +115,11 @@ const Game = ({ gameState, setGameState, formData }) => {
                 gameState={gameState}
                 setGameState={setGameState}
                 attack={p1Attack}
+                comAttack={p2Attack}
+                setComAttack={setP2Attack}
                 setAttack={setP1Attack}
                 finalBoard={p2FinalBoard}
+                p1FinalBoard={p1FinalBoard}
               />
             )}
           </main>
