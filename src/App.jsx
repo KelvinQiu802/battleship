@@ -6,7 +6,7 @@ import Welcome from './components/Welcome/Welcome';
 
 const App = () => {
   // 游戏状态，游戏阶段
-  const [gameState, setGameState] = React.useState(GAME_STATE.P1PLACING);
+  const [gameState, setGameState] = React.useState(GAME_STATE.WELCOME);
   // 表单数据
   const [formData, setFormData] = React.useState({
     p1Name: 'Kelvin',
@@ -14,6 +14,7 @@ const App = () => {
     // playMode: 'multiPlayer',
     playMode: 'singlePlayer',
     language: 'chinese',
+    difficulty: 'normal',
   });
 
   return (

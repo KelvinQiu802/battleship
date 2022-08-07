@@ -48,7 +48,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             autoFocus
           />
           <br />
-          {formData.playMode === 'multiPlayer' && (
+          {formData.playMode === 'multiPlayer' ? (
             <>
               <label htmlFor='p2Name'>玩家2名称:</label>
               <input
@@ -58,6 +58,28 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 value={formData.p2Name}
                 onChange={handleChange}
               />
+            </>
+          ) : (
+            <>
+              <label>难度: </label>
+              <input
+                type='radio'
+                name='difficulty'
+                id='easy'
+                value='easy'
+                checked={formData.difficulty === 'easy'}
+                onChange={handleChange}
+              />
+              <label htmlFor='easy'>简单</label>
+              <input
+                type='radio'
+                name='difficulty'
+                id='normal'
+                value='normal'
+                checked={formData.difficulty === 'normal'}
+                onChange={handleChange}
+              />
+              <label htmlFor='normal'>普通</label>
             </>
           )}
           <br />
