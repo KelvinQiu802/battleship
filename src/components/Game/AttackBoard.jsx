@@ -8,7 +8,11 @@ import {
   showAttack,
   checkSunk,
 } from '../../utils/boardTools.js';
-import { randomAttack } from '../../utils/computerTools';
+import {
+  randomAttack,
+  addPotentialTarget,
+  attackPotentialTarget,
+} from '../../utils/computerTools';
 import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
@@ -26,6 +30,7 @@ const AttackBoard = ({
   setComAttack,
   p1FinalBoard,
 }) => {
+  // 通过Ref在一次快照内，记录游戏状态的更新
   const state = React.useRef(gameState);
   const isMyTurn = gameState.includes(player);
   const isSingleMode = formData.playMode === 'singlePlayer';
@@ -40,17 +45,29 @@ const AttackBoard = ({
   // 渲染已经进行的攻击
   board = showAttack(board, attack);
 
+  // 电脑攻击
   React.useEffect(() => {
     if (isSingleMode && state.current === GAME_STATE.P2ATTACK) {
-      // 电脑攻击
       let attackPosition;
+
       if (!potentialTargets.current.length) {
         // 没有潜在打击目标，随机进攻
         attackPosition = randomAttack(comAttack);
       } else {
         // 随机攻击潜在目标
+        attackPosition = attackPotentialTarget(potentialTargets, comAttack);
       }
+
       const isHit = checkAttack(p1FinalBoard.current, attackPosition);
+      if (isHit) {
+        // 如果击中，添加潜在目标
+        potentialTargets.current = addPotentialTarget(
+          attackPosition,
+          comAttack,
+          potentialTargets
+        );
+      }
+
       const { row, col } = attackPosition;
       setComAttack((prev) => [
         ...prev,
@@ -65,7 +82,9 @@ const AttackBoard = ({
         },
       ]);
       // 判断是否沉船
-      setComAttack((prev) => checkSunk(prev, p1FinalBoard.current, row, col));
+      setComAttack((prev) =>
+        checkSunk(prev, p1FinalBoard.current, row, col, potentialTargets)
+      );
       // 交换攻击
       setGameState(GAME_STATE.P1ATTACK);
       state.current = GAME_STATE.P1ATTACK;

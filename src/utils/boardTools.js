@@ -151,7 +151,13 @@ export const showAttack = (board, attack) => {
 };
 
 // 判断是否沉船
-export const checkSunk = (attack, finalBoard, row, col) => {
+export const checkSunk = (
+  attack,
+  finalBoard,
+  row,
+  col,
+  potentialTarget = null
+) => {
   const ship = finalBoard[coordinateToIndex(row, col)];
   if (ship === 'empty') return attack; // 没打中
   const attackCopy = [...attack];
@@ -164,6 +170,11 @@ export const checkSunk = (attack, finalBoard, row, col) => {
         item.state = BLOCK_STATE.SANK;
       }
     });
+
+    // 如果是电脑攻击，则删除所有潜在目标
+    if (potentialTarget) {
+      potentialTarget.current = [];
+    }
     return attackCopy;
   }
   return attack;
