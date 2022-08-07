@@ -50,7 +50,7 @@ const AttackBoard = ({
     if (isSingleMode && state.current === GAME_STATE.P2ATTACK) {
       let attackPosition;
 
-      if (!potentialTargets.current.length) {
+      if (!potentialTargets.current.length || formData.difficulty === 'easy') {
         // 没有潜在打击目标，随机进攻
         attackPosition = randomAttack(comAttack);
       } else {
