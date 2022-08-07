@@ -14,6 +14,7 @@ const App = () => {
     // playMode: 'multiPlayer',
     playMode: 'singlePlayer',
     language: 'chinese',
+    difficulty: 'normal',
   });
 
   return (
