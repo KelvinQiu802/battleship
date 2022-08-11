@@ -50,6 +50,8 @@ const Game = ({ gameState, setGameState, formData }) => {
           formData={formData}
           p1FinalBoard={p1FinalBoard}
           p2FinalBoard={p2FinalBoard}
+          p1Attack={p1Attack}
+          p2Attack={p2Attack}
         />
       ) : (
         <>
