@@ -1,6 +1,6 @@
 .over {
   text-align: center;
-  margin-top: 100px;
+  margin-top: 40px;
 }
 
 .over-title {
@@ -9,5 +9,40 @@
 
 .over-winner {
   font-size: 3em;
-  margin-top: 50px;
+  margin-top: 30px;
+}
+
+.over-show {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+}
+
+.show-data {
+  width: 500px;
+  height: 200px;
+  border: 1px solid black;
+}
+
+.show-board {
+  width: 600px;
+  height: 650px;
+  border: 1px solid black;
+}
+
+.mini-board {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  width: 278px;
+  margin-bottom: 30px;
+}
+
+.block.mini {
+  width: 30px;
+  height: 30px;
+}
+
+.mini-name {
+  font-size: 1.5em;
 }
