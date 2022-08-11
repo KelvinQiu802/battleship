@@ -14,20 +14,17 @@
 
 .over-show {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   margin-top: 30px;
 }
 
 .show-data {
-  width: 500px;
-  height: 200px;
-  border: 1px solid black;
+  width: 300px;
+  margin-top: 100px;
 }
 
 .show-board {
-  width: 600px;
-  height: 650px;
-  border: 1px solid black;
+  width: 500px;
 }
 
 .mini-board {
@@ -45,4 +42,19 @@
 
 .mini-name {
   font-size: 1.5em;
+}
+
+.data-card {
+  border: 1px solid black;
+  margin-bottom: 20px;
+}
+
+.data-player {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.data-card p {
+  font-size: 1.3em;
+  line-height: 1.5em;
 }
