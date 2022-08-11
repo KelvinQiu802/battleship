@@ -1,8 +1,12 @@
 import * as GAME_STATE from '../../utils/gameState';
 import React from 'react';
 import Header from '../Header';
+import { FormattedMessage } from 'react-intl';
+import { Context } from '../Wrapper';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
+  const context = React.useContext(Context);
+
   const handleSubmit = (e) => {
     e.preventDefault();
     if (formData.playMode === 'singlePlayer') {
@@ -33,9 +37,14 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
     <div className='welcome'>
       <Header />
       <main className='area welcome-body'>
-        <h1 className='welcome-title'>欢迎游玩</h1>
+        <h1 className='welcome-title'>
+          <FormattedMessage id='welcome' defaultMessage='Welcome!' />
+        </h1>
         <p className='welcome-intro'>
-          海战棋(Battleship)是一款双人游玩的猜谜游戏
+          <FormattedMessage
+            id='welcome.introduction'
+            defaultMessage='Battleship is a strategy type guessing game for two players'
+          />
         </p>
         <form onSubmit={handleSubmit} className='welcome-form'>
           <label htmlFor='p1Name'>玩家1名称:</label>
@@ -106,11 +115,11 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           <select
             name='language'
             id='language'
-            value={formData.language}
-            onChange={handleChange}
+            value={context.locale}
+            onChange={context.selectLanguage}
           >
-            <option value='chinese'>中文</option>
-            <option value='english'>英文</option>
+            <option value='zh-CN'>中文</option>
+            <option value='en-US'>English</option>
           </select>
           <br />
           <button type='submit' className='button-start'>
