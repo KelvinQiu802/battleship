@@ -13,7 +13,7 @@ const App = () => {
     p2Name: 'Lydia',
     // playMode: 'multiPlayer',
     playMode: 'singlePlayer',
-    language: 'chinese',
+    // language: 'chinese',
     difficulty: 'normal',
   });
 
