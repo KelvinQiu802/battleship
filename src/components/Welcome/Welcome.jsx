@@ -62,10 +62,10 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           {formData.playMode === 'multiPlayer' ? (
             <>
               <label htmlFor='p2Name'>
-              <FormattedMessage
-                id='welcome.p2Name'
-                defaultMessage='Player 2 Name:'
-              />
+                <FormattedMessage
+                  id='welcome.p2Name'
+                  defaultMessage='Player 2 Name:'
+                />
               </label>
               <input
                 type='text'
@@ -107,14 +107,16 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
               />
               <label htmlFor='normal'>
                 <FormattedMessage
-                    id='welcome.difficulty.normal'
-                    defaultMessage='Normal'
+                  id='welcome.difficulty.normal'
+                  defaultMessage='Normal'
                 />
               </label>
             </>
           )}
           <br />
-          <label>模式: </label>
+          <label>
+            <FormattedMessage id='welcome.mode' defaultMessage='Mode: ' />
+          </label>
           <input
             type='radio'
             name='playMode'
@@ -145,10 +147,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           </label>
           <br />
           <label htmlFor='language'>
-            <FormattedMessage
-              id='welcome.lang'
-              defaultMessage='Language'
-            />
+            <FormattedMessage id='welcome.lang' defaultMessage='Language' />
           </label>
           <select
             name='language'
@@ -161,10 +160,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           </select>
           <br />
           <button type='submit' className='button-start'>
-            <FormattedMessage
-              id='welcome.start'
-              defaultMessage='START'
-            />
+            <FormattedMessage id='welcome.start' defaultMessage='START' />
           </button>
         </form>
       </main>
