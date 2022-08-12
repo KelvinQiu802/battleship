@@ -7,7 +7,7 @@ const DataCatd = ({ name, attack }) => {
   const numberOfMiss = attack.filter(
     (item) => item.state === BLOCK_STATE.MISS
   ).length;
-  const hitRate = (numberOfHit / numberOfAttack).toFixed(2) * 100;
+  const hitRate = ((numberOfHit / numberOfAttack) * 100).toFixed(0);
 
   return (
     <div className='data-card'>
