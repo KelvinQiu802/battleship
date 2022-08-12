@@ -1,14 +1,14 @@
 {
   "welcome": "Welcome!",
   "welcome.introduction": "Battleship is a strategy type guessing game for two players.",
-  "welcome.p1Name": "Player 1 Name:",
-  "welcome.p2Name": "Player 2 Name:",
-  "welcome.difficulty": "Difficulty",
+  "welcome.p1Name": "Player 1 Name: ",
+  "welcome.p2Name": "Player 2 Name: ",
+  "welcome.difficulty": "Difficulty: ",
   "welcome.difficulty.easy": "Easy",
   "welcome.difficulty.normal": "Normal",
-  "welcome.mode": "Mode",
+  "welcome.mode": "Mode: ",
   "welcome.mode.one": "One Player",
   "welcome.mode.two": "Two Player",
-  "welcome.lang": "Language",
+  "welcome.lang": "Language: ",
   "welcome.start": "START"
 }

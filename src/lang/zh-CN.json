@@ -1,14 +1,14 @@
 {
   "welcome": "欢迎!",
   "welcome.introduction": "海战棋(Battleship)是一款双人游玩的猜谜游戏",
-  "welcome.p1Name": "玩家一名称:",
-  "welcome.p2Name": "玩家二名称:",
-  "welcome.difficulty": "难度",
+  "welcome.p1Name": "玩家一名称: ",
+  "welcome.p2Name": "玩家二名称: ",
+  "welcome.difficulty": "难度: ",
   "welcome.difficulty.easy": "简单",
   "welcome.difficulty.normal": "普通",
-  "welcome.mode": "模式",
+  "welcome.mode": "模式: ",
   "welcome.mode.one": "单人",
   "welcome.mode.two": "双人",
-  "welcome.lang": "语言",
+  "welcome.lang": "语言: ",
   "welcome.start": "开始游戏"
 }
