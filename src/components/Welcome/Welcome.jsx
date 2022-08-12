@@ -37,9 +37,6 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
     <div className='welcome'>
       <Header />
       <main className='area welcome-body'>
-        <h1 className='welcome-title'>
-          <FormattedMessage id='welcome' defaultMessage='Welcome!' />
-        </h1>
         <p className='welcome-intro'>
           <FormattedMessage
             id='welcome.introduction'
