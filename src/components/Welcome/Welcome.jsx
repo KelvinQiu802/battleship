@@ -47,7 +47,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           />
         </p>
         <form onSubmit={handleSubmit} className='welcome-form'>
-          <label htmlFor='p1Name'>玩家1名称:</label>
+          <label htmlFor='p1Name'>
+            <FormattedMessage
+              id='welcome.p1Name'
+              defaultMessage='Player 1 Name:'
+            />
+          </label>
           <input
             type='text'
             name='p1Name'
@@ -59,7 +64,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           <br />
           {formData.playMode === 'multiPlayer' ? (
             <>
-              <label htmlFor='p2Name'>玩家2名称:</label>
+              <label htmlFor='p2Name'>
+              <FormattedMessage
+                id='welcome.p2Name'
+                defaultMessage='Player 2 Name:'
+              />
+              </label>
               <input
                 type='text'
                 name='p2Name'
@@ -70,7 +80,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             </>
           ) : (
             <>
-              <label>难度: </label>
+              <label>
+                <FormattedMessage
+                  id='welcome.difficulty'
+                  defaultMessage='Difficulty'
+                />
+              </label>
               <input
                 type='radio'
                 name='difficulty'
@@ -79,7 +94,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 checked={formData.difficulty === 'easy'}
                 onChange={handleChange}
               />
-              <label htmlFor='easy'>简单</label>
+              <label htmlFor='easy'>
+                <FormattedMessage
+                  id='welcome.difficulty.easy'
+                  defaultMessage='Easy'
+                />
+              </label>
               <input
                 type='radio'
                 name='difficulty'
@@ -88,7 +108,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 checked={formData.difficulty === 'normal'}
                 onChange={handleChange}
               />
-              <label htmlFor='normal'>普通</label>
+              <label htmlFor='normal'>
+                <FormattedMessage
+                    id='welcome.difficulty.normal'
+                    defaultMessage='Normal'
+                />
+              </label>
             </>
           )}
           <br />
@@ -100,7 +125,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             checked={formData.playMode === 'multiPlayer'}
             onChange={handleChange}
           />
-          <label htmlFor='multiPlayer'>双人</label>
+          <label htmlFor='multiPlayer'>
+            <FormattedMessage
+              id='welcome.mode.two'
+              defaultMessage='Two Player'
+            />
+          </label>
           <input
             type='radio'
             name='playMode'
@@ -109,9 +139,19 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             checked={formData.playMode === 'singlePlayer'}
             onChange={handleChange}
           />
-          <label htmlFor='singlePlayer'>单人</label>
+          <label htmlFor='singlePlayer'>
+            <FormattedMessage
+              id='welcome.mode.one'
+              defaultMessage='One Player'
+            />
+          </label>
           <br />
-          <label htmlFor='language'>语言: </label>
+          <label htmlFor='language'>
+            <FormattedMessage
+              id='welcome.lang'
+              defaultMessage='Language'
+            />
+          </label>
           <select
             name='language'
             id='language'
@@ -123,7 +163,10 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           </select>
           <br />
           <button type='submit' className='button-start'>
-            开始游戏
+            <FormattedMessage
+              id='welcome.start'
+              defaultMessage='START'
+            />
           </button>
         </form>
       </main>
