@@ -92,6 +92,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             </>
           )}
           <br />
+          <label>模式: </label>
           <input
             type='radio'
             name='playMode'
