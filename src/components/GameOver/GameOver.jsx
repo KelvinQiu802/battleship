@@ -1,5 +1,6 @@
 import MiniBoard from './MiniBoard';
 import DataCatd from './DataCard';
+import { FormattedMessage } from 'react-intl';
 
 const GameOver = ({
   gameState,
@@ -12,8 +13,19 @@ const GameOver = ({
   const winner = gameState.includes('p1') ? formData.p1Name : formData.p2Name;
   return (
     <div className='over area'>
-      <h1 className='over-title'>游戏结束</h1>
-      <h2 className='over-winner'>{`赢家是: ${winner}`}</h2>
+      <h1 className='over-title'>
+        <FormattedMessage
+          id='over.title'
+          defaultMessage="Game Over"
+        />
+      </h1>
+      <h2 className='over-winner'>
+        <FormattedMessage
+          id='over.winner'
+          values={{ winner: <b>{winner}</b> }}
+          defaultMessage={`The winner is: ${winner}`}
+        />
+      </h2>
       <main className='over-show'>
         <div className='show-data'>
           <DataCatd name={formData.p1Name} attack={p1Attack} />

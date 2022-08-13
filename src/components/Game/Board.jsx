@@ -7,6 +7,7 @@ import {
 import { computerPlacingShip } from '../../utils/computerTools';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
+import { FormattedMessage } from 'react-intl';
 
 const Board = ({
   gameState,
@@ -110,9 +111,21 @@ const Board = ({
 
   return (
     <div className='board-container'>
-      <h2 className='board-title'>{`${name}'s Board`}</h2>
+      <h2 className='board-title'>
+        <FormattedMessage
+          id='board.title'
+          values={{ name: <b>{name}</b> }}
+          defaultMessage={`${name}'s Boaed`}
+        />
+      </h2>
       {!gameState.includes(player) ? (
-        <h1 className='waiting-title'>等待玩家{isP1 ? '一' : '二'}放置</h1>
+        <h1 className='waiting-title'>
+          <FormattedMessage
+            id='board.waitMessage'
+            values={{isP1: <b>{isP1 ? '一' : '二'}</b> }}
+            defaultMessage={`Wait for player ${isP1 ? 'one' : 'two'} place`}
+          />
+        </h1>
       ) : (
         <div className='board' onContextMenu={(e) => e.preventDefault()}>
           {board.map((state, index) => (
