@@ -1,5 +1,6 @@
-import { P1PLACING } from '../../utils/gameState';
 import Ship from './Ship';
+import React from 'react';
+import { Context } from '../Wrapper';
 
 const Harbour = ({
   gameState,
@@ -10,6 +11,8 @@ const Harbour = ({
   p2AvaliableShips,
   setP2PlacingShip,
 }) => {
+  const context = React.useContext(Context);
+
   const isP1 = gameState.includes('p1');
   const placingShip = isP1 ? p1PlacingShip : p2PlacingShip;
   const setPlacingShip = isP1 ? setP1PlacingShip : setP2PlacingShip;
@@ -37,7 +40,9 @@ const Harbour = ({
           }`}
           onClick={() => handleSelect(ship)}
         >
-          <h3 className='ship-name'>{ship.name}</h3>
+          <h3 className='ship-name'>
+            {context.locale === 'zh-CN' ? ship.zh : ship.name}
+          </h3>
           <Ship length={ship.length} />
         </div>
       ))}
