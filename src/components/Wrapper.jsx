@@ -5,13 +5,15 @@ import English from '../lang/en-US.json';
 
 export const Context = React.createContext();
 
-const local = navigator.language;
+export const local = navigator.language;
+
 let lang;
 if (local === 'zh-CN') {
   lang = Chinese;
 } else {
   lang = English;
 }
+
 
 const Wrapper = ({ children }) => {
   const [locale, setLocale] = useState(local);

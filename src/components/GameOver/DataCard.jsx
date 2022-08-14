@@ -1,4 +1,5 @@
 import * as BLOCK_STATE from '../../utils/blockStates';
+import { FormattedMessage } from 'react-intl';
 
 const DataCatd = ({ name, attack }) => {
   const numberOfAttack = attack.length - 1;
@@ -12,10 +13,34 @@ const DataCatd = ({ name, attack }) => {
   return (
     <div className='data-card'>
       <h1 className='data-player'>{name}</h1>
-      <p>攻击次数: {numberOfAttack}</p>
-      <p>命中次数: {numberOfHit}</p>
-      <p>未命中次数: {numberOfMiss}</p>
-      <p>命中率: {hitRate}%</p>
+      <p>
+        <FormattedMessage
+          id='over.numberOfAttack'
+          defaultMessage="Number of Attack:"
+        />
+        {numberOfAttack}
+      </p>
+      <p>
+        <FormattedMessage
+          id='over.numberOfHit'
+          defaultMessage="Number of Hit:"
+        />
+        {numberOfHit}
+      </p>
+      <p>
+        <FormattedMessage
+          id='over.numberOfMiss'
+          defaultMessage="Number of Miss:"
+        />
+        {numberOfMiss}
+      </p>
+      <p>
+        <FormattedMessage
+          id='over.hitRate'
+          defaultMessage="Hit Rate:"
+        />
+        {hitRate}%
+      </p>
     </div>
   );
 };

@@ -16,6 +16,7 @@ import {
 import React from 'react';
 import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
+import { FormattedMessage } from 'react-intl';
 
 const AttackBoard = ({
   player,
@@ -137,7 +138,13 @@ const AttackBoard = ({
 
   return (
     <div className='board-container'>
-      <h2 className='board-title'>{`${name}'s Board`}</h2>
+      <h2 className='board-title'>
+        <FormattedMessage
+          id='board.title'
+          values={{ name: <b>{name}</b> }}
+          defaultMessage={`${name}'s Boaed`}
+        />
+      </h2>
       <div
         className={`board ${isMyTurn ? 'disabled' : ''}`}
         onContextMenu={(e) => e.preventDefault()}

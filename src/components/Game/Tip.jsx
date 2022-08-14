@@ -1,17 +1,30 @@
 import * as GAME_STATE from '../../utils/gameState';
+import { FormattedMessage } from 'react-intl';
 
 const Tip = ({ gameState }) => {
   let message;
   switch (gameState) {
     case GAME_STATE.P1PLACING:
     case GAME_STATE.P2PLACING:
-      message = '选择船之后在棋盘上放置，右键旋转方向';
+      message =
+        <FormattedMessage
+          id='tip.placing'
+          defaultMessage='After selecting the ship, place it on the board and right click to rotate the direction.'
+        />
       break;
     case GAME_STATE.P1ATTACK:
-      message = '玩家一: 在右侧棋盘上选择坐标进行攻击⬆';
+      message =
+        <FormattedMessage
+          id='tip.p1Attack'
+          defaultMessage='Player1: Select coordinates on the right board to attack.⬆'
+        />
       break;
     case GAME_STATE.P2ATTACK:
-      message = '⬆玩家二: 在左侧棋盘上选择坐标进行攻击';
+      message =
+        <FormattedMessage
+          id='tip.p2Attack'
+          defaultMessage='⬆Player2: Select coordinates on the left board to attack.'
+        />
   }
   return <p className='tip'>{message}</p>;
 };
