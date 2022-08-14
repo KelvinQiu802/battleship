@@ -21,10 +21,5 @@
   "over.numberOfAttack": "攻击次数:",
   "over.numberOfHit":"命中次数:",
   "over.numberOfMiss":"脱靶次数:",
-  "over.hitRate": "命中率:",
-  "ship.carrier": "航空母舰",
-  "ship.battleship": "战舰",
-  "ship.destroyer": "驱逐舰",
-  "ship.submarine": "潜水艇",
-  "ship.patrol": "巡逻舰"
+  "over.hitRate": "命中率:"
 }
