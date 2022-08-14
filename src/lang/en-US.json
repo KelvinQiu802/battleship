@@ -10,5 +10,16 @@
   "welcome.mode.one": "One Player",
   "welcome.mode.two": "Two Player",
   "welcome.lang": "Language: ",
-  "welcome.start": "START"
+  "welcome.start": "START",
+  "board.title": "{name}'s Board",
+  "board.waitMessage": "Wait for player {isP1} to place",
+  "tip.placing": "After selecting the ship, place it on the board and right click to rotate the direction.",
+  "tip.p1Attack": "Player1: Select coordinates on the right board to attack.⬆",
+  "tip.p2Attack": "⬆Player2: Select coordinates on the left board to attack.",
+  "over.title": "Game Over",
+  "over.winner": "The winner is: {winner}",
+  "over.numberOfAttack": "Number of Attack:",
+  "over.numberOfHit":"Number of Hit:",
+  "over.numberOfMiss":"Number of Miss:",
+  "over.hitRate": "Hit Rate:"
 }

@@ -16,14 +16,12 @@ const GameOver = ({
       <h1 className='over-title'>
         <FormattedMessage
           id='over.title'
-          defaultMessage="Game Over"
         />
       </h1>
       <h2 className='over-winner'>
         <FormattedMessage
           id='over.winner'
           values={{ winner: <b>{winner}</b> }}
-          defaultMessage={`The winner is: ${winner}`}
         />
       </h2>
       <main className='over-show'>

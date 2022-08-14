@@ -40,14 +40,12 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
         <p className='welcome-intro'>
           <FormattedMessage
             id='welcome.introduction'
-            defaultMessage='Battleship is a strategy type guessing game for two players'
           />
         </p>
         <form onSubmit={handleSubmit} className='welcome-form'>
           <label htmlFor='p1Name'>
             <FormattedMessage
               id='welcome.p1Name'
-              defaultMessage='Player 1 Name:'
             />
           </label>
           <input
@@ -64,7 +62,6 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
               <label htmlFor='p2Name'>
                 <FormattedMessage
                   id='welcome.p2Name'
-                  defaultMessage='Player 2 Name:'
                 />
               </label>
               <input
@@ -80,7 +77,6 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
               <label>
                 <FormattedMessage
                   id='welcome.difficulty'
-                  defaultMessage='Difficulty'
                 />
               </label>
               <input
@@ -94,7 +90,6 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
               <label htmlFor='easy'>
                 <FormattedMessage
                   id='welcome.difficulty.easy'
-                  defaultMessage='Easy'
                 />
               </label>
               <input
@@ -108,14 +103,13 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
               <label htmlFor='normal'>
                 <FormattedMessage
                   id='welcome.difficulty.normal'
-                  defaultMessage='Normal'
                 />
               </label>
             </>
           )}
           <br />
           <label>
-            <FormattedMessage id='welcome.mode' defaultMessage='Mode: ' />
+            <FormattedMessage id='welcome.mode'/>
           </label>
           <input
             type='radio'
@@ -128,7 +122,6 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           <label htmlFor='multiPlayer'>
             <FormattedMessage
               id='welcome.mode.two'
-              defaultMessage='Two Player'
             />
           </label>
           <input
@@ -142,12 +135,11 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           <label htmlFor='singlePlayer'>
             <FormattedMessage
               id='welcome.mode.one'
-              defaultMessage='One Player'
             />
           </label>
           <br />
           <label htmlFor='language'>
-            <FormattedMessage id='welcome.lang' defaultMessage='Language' />
+            <FormattedMessage id='welcome.lang'/>
           </label>
           <select
             name='language'
@@ -160,7 +152,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           </select>
           <br />
           <button type='submit' className='button-start'>
-            <FormattedMessage id='welcome.start' defaultMessage='START' />
+            <FormattedMessage id='welcome.start'/>
           </button>
         </form>
       </main>

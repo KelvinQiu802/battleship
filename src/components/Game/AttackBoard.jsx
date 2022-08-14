@@ -142,7 +142,6 @@ const AttackBoard = ({
         <FormattedMessage
           id='board.title'
           values={{ name: <b>{name}</b> }}
-          defaultMessage={`${name}'s Boaed`}
         />
       </h2>
       <div
