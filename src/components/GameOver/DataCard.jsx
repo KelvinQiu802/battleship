@@ -16,28 +16,24 @@ const DataCatd = ({ name, attack }) => {
       <p>
         <FormattedMessage
           id='over.numberOfAttack'
-          defaultMessage="Number of Attack:"
         />
         {numberOfAttack}
       </p>
       <p>
         <FormattedMessage
           id='over.numberOfHit'
-          defaultMessage="Number of Hit:"
         />
         {numberOfHit}
       </p>
       <p>
         <FormattedMessage
           id='over.numberOfMiss'
-          defaultMessage="Number of Miss:"
         />
         {numberOfMiss}
       </p>
       <p>
         <FormattedMessage
           id='over.hitRate'
-          defaultMessage="Hit Rate:"
         />
         {hitRate}%
       </p>
