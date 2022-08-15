@@ -9,7 +9,6 @@ import * as BLOCK_STATE from '../../utils/blockStates';
 import * as GAME_STATE from '../../utils/gameState';
 import { FormattedMessage } from 'react-intl';
 
-
 const Board = ({
   gameState,
   setGameState,
@@ -25,7 +24,6 @@ const Board = ({
   finalBoard,
   comBoard,
 }) => {
-
   // 是否是单人模式
   const isSingleMode = formData.playMode === 'singlePlayer';
   const isP1 = gameState.includes('p1');
@@ -114,17 +112,14 @@ const Board = ({
   return (
     <div className='board-container'>
       <h2 className='board-title'>
-        <FormattedMessage
-          id='board.title'
-          values={{ name: <b>{name}</b> }}
-        />
+        <FormattedMessage id='board.title' values={{ name: <b>{name}</b> }} />
       </h2>
       {!gameState.includes(player) ? (
         <h1 className='waiting-title'>
           <FormattedMessage
             id='board.waitMessage'
-            values={{isP1: <b>{isP1 ? '一' : '二'}</b> }}
-            defaultMessage={`Wait for player ${isP1 ? 'one' : 'two'} place`}
+            values={{ isP1: <b>{isP1 ? '1' : '2'}</b> }}
+            defaultMessage={`Wait for player ${isP1 ? 'one' : 'two'} to place`}
           />
         </h1>
       ) : (
