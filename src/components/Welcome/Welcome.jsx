@@ -37,16 +37,13 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
     <div className='welcome'>
       <Header />
       <main className='area welcome-body'>
+        <h1>Play Battleship</h1>
         <p className='welcome-intro'>
-          <FormattedMessage
-            id='welcome.introduction'
-          />
+          <FormattedMessage id='welcome.introduction' />
         </p>
         <form onSubmit={handleSubmit} className='welcome-form'>
           <label htmlFor='p1Name'>
-            <FormattedMessage
-              id='welcome.p1Name'
-            />
+            <FormattedMessage id='welcome.p1Name' />
           </label>
           <input
             type='text'
@@ -60,9 +57,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           {formData.playMode === 'multiPlayer' ? (
             <>
               <label htmlFor='p2Name'>
-                <FormattedMessage
-                  id='welcome.p2Name'
-                />
+                <FormattedMessage id='welcome.p2Name' />
               </label>
               <input
                 type='text'
@@ -75,9 +70,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           ) : (
             <>
               <label>
-                <FormattedMessage
-                  id='welcome.difficulty'
-                />
+                <FormattedMessage id='welcome.difficulty' />
               </label>
               <input
                 type='radio'
@@ -88,9 +81,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 onChange={handleChange}
               />
               <label htmlFor='easy'>
-                <FormattedMessage
-                  id='welcome.difficulty.easy'
-                />
+                <FormattedMessage id='welcome.difficulty.easy' />
               </label>
               <input
                 type='radio'
@@ -101,15 +92,13 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 onChange={handleChange}
               />
               <label htmlFor='normal'>
-                <FormattedMessage
-                  id='welcome.difficulty.normal'
-                />
+                <FormattedMessage id='welcome.difficulty.normal' />
               </label>
             </>
           )}
           <br />
           <label>
-            <FormattedMessage id='welcome.mode'/>
+            <FormattedMessage id='welcome.mode' />
           </label>
           <input
             type='radio'
@@ -120,9 +109,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             onChange={handleChange}
           />
           <label htmlFor='multiPlayer'>
-            <FormattedMessage
-              id='welcome.mode.two'
-            />
+            <FormattedMessage id='welcome.mode.two' />
           </label>
           <input
             type='radio'
@@ -133,13 +120,11 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             onChange={handleChange}
           />
           <label htmlFor='singlePlayer'>
-            <FormattedMessage
-              id='welcome.mode.one'
-            />
+            <FormattedMessage id='welcome.mode.one' />
           </label>
           <br />
           <label htmlFor='language'>
-            <FormattedMessage id='welcome.lang'/>
+            <FormattedMessage id='welcome.lang' />
           </label>
           <select
             name='language'
@@ -152,7 +137,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
           </select>
           <br />
           <button type='submit' className='button-start'>
-            <FormattedMessage id='welcome.start'/>
+            <FormattedMessage id='welcome.start' />
           </button>
         </form>
       </main>
