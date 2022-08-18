@@ -19,7 +19,7 @@
   text-align: center;
 }
 
-.board-title {
+.board-title-p1 {
   font-size: 1.5em;
   width: 345px;
   height: 40px;
@@ -30,7 +30,7 @@
   border-radius: 5px;
 }
 
-.board-title1 {
+.board-title-p2 {
   font-size: 1.5em;
   width: 345px;
   height: 40px;
@@ -49,7 +49,7 @@
   background-color: #cbedff;
 }
 
-.block1 {
+.board-p2 block {
   width: 40px;
   height: 40px;
   margin: 1.5px 1.5px 1.5px 1.5px;
