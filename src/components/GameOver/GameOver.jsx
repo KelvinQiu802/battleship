@@ -14,9 +14,7 @@ const GameOver = ({
   return (
     <div className='over area'>
       <h1 className='over-title'>
-        <FormattedMessage
-          id='over.title'
-        />
+        <FormattedMessage id='over.title' />
       </h1>
       <h2 className='over-winner'>
         <FormattedMessage
@@ -30,8 +28,16 @@ const GameOver = ({
           <DataCatd name={formData.p2Name} attack={p2Attack} />
         </div>
         <div className='show-board'>
-          <MiniBoard finalBoard={p1FinalBoard} name={formData.p1Name} />
-          <MiniBoard finalBoard={p2FinalBoard} name={formData.p2Name} />
+          <MiniBoard
+            finalBoard={p1FinalBoard}
+            name={formData.p1Name}
+            player='p1'
+          />
+          <MiniBoard
+            finalBoard={p2FinalBoard}
+            name={formData.p2Name}
+            player='p2'
+          />
         </div>
       </main>
     </div>

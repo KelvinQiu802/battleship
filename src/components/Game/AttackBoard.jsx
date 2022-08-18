@@ -139,13 +139,12 @@ const AttackBoard = ({
   return (
     <div className='board-container'>
       <h2 className='board-title'>
-        <FormattedMessage
-          id='board.title'
-          values={{ name: <b>{name}</b> }}
-        />
+        <FormattedMessage id='board.title' values={{ name: <b>{name}</b> }} />
       </h2>
       <div
-        className={`board ${isMyTurn ? 'disabled' : ''}`}
+        className={`board ${isMyTurn ? 'disabled' : ''} ${
+          player === 'p1' ? 'board-p1' : 'board-p2'
+        }`}
         onContextMenu={(e) => e.preventDefault()}
       >
         {board.map((state, index) => (

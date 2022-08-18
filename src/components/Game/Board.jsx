@@ -111,7 +111,11 @@ const Board = ({
 
   return (
     <div className='board-container'>
-      <h2 className='board-title'>
+      <h2
+        className={`board-title ${
+          player === 'p1' ? 'board-title-p1' : 'board-title-p2'
+        }`}
+      >
         <FormattedMessage id='board.title' values={{ name: <b>{name}</b> }} />
       </h2>
       {!gameState.includes(player) ? (
@@ -123,7 +127,10 @@ const Board = ({
           />
         </h1>
       ) : (
-        <div className='board' onContextMenu={(e) => e.preventDefault()}>
+        <div
+          className={`board ${player === 'p1' ? 'board-p1' : 'board-p2'}`}
+          onContextMenu={(e) => e.preventDefault()}
+        >
           {board.map((state, index) => (
             <div
               key={index}
