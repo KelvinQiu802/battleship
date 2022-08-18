@@ -1,12 +1,12 @@
 .game-area {
   display: flex;
-  margin-top: 150px;
+  margin-top: 80px;
   justify-content: space-evenly;
 }
 
 .board {
   display: flex;
-  width: 328px;
+  width: 350px;
   flex-wrap: wrap;
   cursor: pointer;
 }
@@ -20,14 +20,41 @@
 }
 
 .board-title {
-  font-size: 2em;
+  font-size: 1.5em;
+  width: 345px;
+  height: 40px;
+  margin-bottom: 1.5em;
+  background-color: #ff0054;
+  line-height: 40px;
+  color: #fff9ff;
+  border-radius: 5px;
+}
+
+.board-title1 {
+  font-size: 1.5em;
+  width: 345px;
+  height: 40px;
+  margin-bottom: 1.5em;
+  background-color: #717d97;
+  line-height: 40px;
+  color: #fff9ff;
+  border-radius: 5px;
 }
 
 .block {
   width: 40px;
   height: 40px;
-  border: 1px solid black;
-  margin: 0 -1px -1px 0;
+  margin: 1.5px 1.5px 1.5px 1.5px;
+  border-radius: 5px;
+  background-color: #cbedff;
+}
+
+.block1 {
+  width: 40px;
+  height: 40px;
+  margin: 1.5px 1.5px 1.5px 1.5px;
+  border-radius: 5px;
+  background-color: #d7edec;
 }
 
 .block.placing {
@@ -39,11 +66,11 @@
 }
 
 .block.Carrier {
-  background-color: aqua;
+  background-color: #1cd4d4;
 }
 
 .block.Battleship {
-  background-color: brown;
+  background-color: #fe9910;
 }
 
 .block.Destroyer {
@@ -51,11 +78,11 @@
 }
 
 .block.Submarine {
-  background-color: coral;
+  background-color: #ffd581;
 }
 
 .block.Patrol {
-  background-color: deeppink;
+  background-color: #fd6b51;
 }
 
 .block.sank {
@@ -79,17 +106,19 @@
 }
 
 .harbour {
-  width: 180px;
-  border: 1px solid black;
-  padding: 30px 10px;
+  width: 200px;
+  border: 5px solid #c2762182;
+  padding: 27px 20px;
+  border-radius: 10px;
 }
 
 .ship-container {
-  border: 1px solid black;
+  border: 3px solid #d6c638c7;
   margin-bottom: 20px;
-  padding: 5px 10px;
+  padding: 7px 14px;
   cursor: pointer;
   user-select: none;
+  border-radius: 10px;
 }
 
 .ship-container:hover {
@@ -112,8 +141,18 @@
   background-color: rgba(135, 207, 235, 0.244);
 }
 
+.ship-name {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+  margin-bottom: 3px;
+}
+
 .waiting-title {
-  font-size: 3em;
+  font-size: 2em;
   margin-top: 100px;
 }
 
