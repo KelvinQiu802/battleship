@@ -138,7 +138,11 @@ const AttackBoard = ({
 
   return (
     <div className='board-container'>
-      <h2 className='board-title'>
+      <h2
+        className={`board-title ${
+          player === 'p1' ? 'board-title-p1' : 'board-title-p2'
+        }`}
+      >
         <FormattedMessage id='board.title' values={{ name: <b>{name}</b> }} />
       </h2>
       <div
