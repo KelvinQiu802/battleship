@@ -1,6 +1,6 @@
 .welcome-body {
   display: flex;
-  flex-direction:row;
+  flex-direction: row;
   justify-content: space-around;
   text-align: center;
   position: relative;
@@ -27,13 +27,13 @@
 
 .welcome-form input {
   vertical-align: baseline;
-  height:25px;
+  height: 25px;
   font-size: 20px;
   font-weight: 600;
   margin: 15px;
   border-color: #c4d0e8;
-  background-color:#c4d0e8;
-  border-radius:10px;
+  background-color: #c4d0e8;
+  border-radius: 10px;
 }
 .button-start {
   font-size: 2em;
@@ -43,36 +43,37 @@
   border: 0px;
   color: #d8dee7;
   background-color: #4576e7;
-
 }
-.welcome-div{
+.welcome-div {
   border-radius: 30px;
-  background-color:#e9eaed;
+  background-color: #e9eaed;
 }
 
-h1{
+h1 {
   letter-spacing: 2px;
   font-size: 40px;
-  font-weight:900 ;
+  font-weight: 900;
 }
-img{width: 400px;}
-.welcome-lastdiv{
+img {
+  width: 400px;
+}
+.welcome-lastdiv {
   display: flex;
   justify-content: space-between;
   background-color: #ffffff;
 }
-.welcome-lastdiv select{
-  background-color:#c4d0e8;
-  height:25px;
+.welcome-lastdiv select {
+  background-color: #c4d0e8;
+  height: 25px;
   font-size: 20px;
   font-weight: 600;
   margin: 15px;
-  border-radius:10px;
+  border-radius: 10px;
 }
-.div-language{
+.div-language {
   margin-top: 10px;
   height: 50px;
   padding: 15px;
-  background-color:#e9eaed;
-  border-radius:30px;
+  background-color: #e9eaed;
+  border-radius: 30px;
 }

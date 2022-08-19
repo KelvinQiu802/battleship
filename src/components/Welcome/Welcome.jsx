@@ -37,7 +37,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
     <div className='welcome'>
       <Header />
       <main className='area welcome-body'>
-        <div >
+        <div>
           <h1>Play Battleship</h1>
           <p className='welcome-intro'>
             <FormattedMessage id='welcome.introduction' />
@@ -54,79 +54,75 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                 value={formData.p1Name}
                 onChange={handleChange}
                 autoFocus
-               />
+              />
             </div>
             <br />
             {formData.playMode === 'multiPlayer' ? (
               <>
-              <div className='welcome-div'>
-                <label htmlFor='p2Name'>
-                  <FormattedMessage id='welcome.p2Name' />
-                </label>
-                <input
-                  type='text'
-                  name='p2Name'
-                  id='p2Name'
-                  value={formData.p2Name}
-                  onChange={handleChange}
-                />
-              </div>
+                <div className='welcome-div'>
+                  <label htmlFor='p2Name'>
+                    <FormattedMessage id='welcome.p2Name' />
+                  </label>
+                  <input
+                    type='text'
+                    name='p2Name'
+                    id='p2Name'
+                    value={formData.p2Name}
+                    onChange={handleChange}
+                  />
+                </div>
               </>
             ) : (
               <>
-              <div className='welcome-div'>
-                <label>
-                  <FormattedMessage id='welcome.difficulty' />
-                </label>
-                <input
-                  type='radio'
-                  name='difficulty'
-                  id='easy'
-                  value='easy'
-                  checked={formData.difficulty === 'easy'}
-                  onChange={handleChange}
-                />
-                <label htmlFor='easy'>
-                  <FormattedMessage id='welcome.difficulty.easy' />
-                </label>
-                <input
-                  type='radio'
-                  name='difficulty'
-                  id='normal'
-                  value='normal'
-                  checked={formData.difficulty === 'normal'}
-                  onChange={handleChange}
-                />
-                <label htmlFor='normal'>
-                  <FormattedMessage id='welcome.difficulty.normal' />
-                </label>
+                <div className='welcome-div'>
+                  <label>
+                    <FormattedMessage id='welcome.difficulty' />
+                  </label>
+                  <input
+                    type='radio'
+                    name='difficulty'
+                    id='easy'
+                    value='easy'
+                    checked={formData.difficulty === 'easy'}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor='easy'>
+                    <FormattedMessage id='welcome.difficulty.easy' />
+                  </label>
+                  <input
+                    type='radio'
+                    name='difficulty'
+                    id='normal'
+                    value='normal'
+                    checked={formData.difficulty === 'normal'}
+                    onChange={handleChange}
+                  />
+                  <label htmlFor='normal'>
+                    <FormattedMessage id='welcome.difficulty.normal' />
+                  </label>
                 </div>
               </>
             )}
             <br />
             <div className='welcome-div'>
-            <label>
-              <FormattedMessage id='welcome.mode' />
-            </label>
-            <input
-              type='radio'
-              name='playMode'
-              id='multiPlayer'
-              value='multiPlayer'
-              checked={formData.playMode === 'multiPlayer'}
-              onChange={handleChange}
-            />
-            <label htmlFor='multiPlayer'>
-              <FormattedMessage id='welcome.mode.two' />
-            </label>
-            <input
-              type='radio'
-              name='playMode'
-              onChange={handleChange}
-            />
-            <label htmlFor='singlePlayer'>
-              <FormattedMessage id='welcome.mode.one' />
-            </label>
+              <label>
+                <FormattedMessage id='welcome.mode' />
+              </label>
+              <input
+                type='radio'
+                name='playMode'
+                id='multiPlayer'
+                value='multiPlayer'
+                checked={formData.playMode === 'multiPlayer'}
+                onChange={handleChange}
+              />
+              <label htmlFor='multiPlayer'>
+                <FormattedMessage id='welcome.mode.two' />
+              </label>
+              <input type='radio' name='playMode' onChange={handleChange} />
+              <label htmlFor='singlePlayer'>
+                <FormattedMessage id='welcome.mode.one' />
+              </label>
             </div>
             <br />
             <div className='welcome-lastdiv'>
@@ -140,8 +136,8 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
                   value={context.locale}
                   onChange={context.selectLanguage}
                 >
-                 <option value='zh-CN'>中文</option>
-                 <option value='en-US'>English</option>
+                  <option value='zh-CN'>中文</option>
+                  <option value='en-US'>English</option>
                 </select>
               </div>
               <div>
@@ -152,7 +148,9 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             </div>
           </form>
         </div>
-        <div><img src='/src/images/shipGroup.png'></img></div>
+        <div>
+          <img src='/src/images/shipGroup.png'></img>
+        </div>
       </main>
     </div>
   );
