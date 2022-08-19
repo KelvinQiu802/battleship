@@ -1,19 +1,17 @@
 .welcome-body {
   display: flex;
-  flex-direction: row;
   justify-content: space-around;
-  text-align: center;
-  position: relative;
-  top: 3rem;
+  align-items: center;
+  margin-top: 100px;
 }
 .welcome-title {
-  font-size: 4em;
-  margin-top: 40px;
+  font-size: 2.5em;
+  letter-spacing: 1px;
 }
 
 .welcome-intro {
-  font-size: 1.5em;
-  margin-top: 18px;
+  font-size: 1.1em;
+  margin-top: 10px;
   margin-bottom: 50px;
   width: 500px;
 }
@@ -55,7 +53,7 @@ h1 {
   font-weight: 900;
 }
 img {
-  width: 400px;
+  width: 300px;
 }
 .welcome-lastdiv {
   display: flex;

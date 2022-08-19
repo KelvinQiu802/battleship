@@ -3,6 +3,19 @@ import React from 'react';
 import Header from '../Header';
 import { FormattedMessage } from 'react-intl';
 import { Context } from '../Wrapper';
+import {
+  Box,
+  Button,
+  FormControl,
+  FormControlLabel,
+  FormLabel,
+  InputLabel,
+  MenuItem,
+  Radio,
+  RadioGroup,
+  Select,
+  TextField,
+} from '@mui/material';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
   const context = React.useContext(Context);
@@ -38,115 +51,98 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
       <Header />
       <main className='area welcome-body'>
         <div>
-          <h1>Play Battleship</h1>
+          <h1 className='welcome-title'>Play Battleship</h1>
           <p className='welcome-intro'>
             <FormattedMessage id='welcome.introduction' />
           </p>
-          <form onSubmit={handleSubmit} className='welcome-form'>
-            <div className='welcome-div'>
-              <label htmlFor='p1Name'>
-                <FormattedMessage id='welcome.p1Name' />
-              </label>
-              <input
-                type='text'
-                name='p1Name'
-                id='p1Name'
-                value={formData.p1Name}
-                onChange={handleChange}
-                autoFocus
-              />
-            </div>
+          <Box component='form' onSubmit={(e) => handleSubmit(e)}>
+            <TextField
+              name='p1Name'
+              id='p1Name'
+              value={formData.p1Name}
+              onChange={handleChange}
+              autoFocus
+              label={<FormattedMessage id='welcome.p1Name' />}
+            />
             <br />
             {formData.playMode === 'multiPlayer' ? (
-              <>
-                <div className='welcome-div'>
-                  <label htmlFor='p2Name'>
-                    <FormattedMessage id='welcome.p2Name' />
-                  </label>
-                  <input
-                    type='text'
-                    name='p2Name'
-                    id='p2Name'
-                    value={formData.p2Name}
-                    onChange={handleChange}
-                  />
-                </div>
-              </>
+              <TextField
+                name='p2Name'
+                id='p2Name'
+                value={formData.p2Name}
+                onChange={handleChange}
+                label={<FormattedMessage id='welcome.p2Name' />}
+              />
             ) : (
-              <>
-                <div className='welcome-div'>
-                  <label>
-                    <FormattedMessage id='welcome.difficulty' />
-                  </label>
-                  <input
-                    type='radio'
+              <FormControl>
+                <FormLabel>
+                  {<FormattedMessage id='welcome.difficulty' />}
+                </FormLabel>
+                <RadioGroup row>
+                  <FormControlLabel
                     name='difficulty'
-                    id='easy'
                     value='easy'
                     checked={formData.difficulty === 'easy'}
                     onChange={handleChange}
+                    label={<FormattedMessage id='welcome.difficulty.easy' />}
+                    control={<Radio />}
                   />
-                  <label htmlFor='easy'>
-                    <FormattedMessage id='welcome.difficulty.easy' />
-                  </label>
-                  <input
-                    type='radio'
+                  <FormControlLabel
                     name='difficulty'
-                    id='normal'
                     value='normal'
                     checked={formData.difficulty === 'normal'}
                     onChange={handleChange}
+                    label={<FormattedMessage id='welcome.difficulty.normal' />}
+                    control={<Radio />}
                   />
-                  <label htmlFor='normal'>
-                    <FormattedMessage id='welcome.difficulty.normal' />
-                  </label>
-                </div>
-              </>
+                </RadioGroup>
+              </FormControl>
             )}
             <br />
-            <div className='welcome-div'>
-              <label>
+            <FormControl>
+              <FormLabel>
                 <FormattedMessage id='welcome.mode' />
-              </label>
-              <input
-                type='radio'
-                name='playMode'
-                id='multiPlayer'
-                value='multiPlayer'
-                checked={formData.playMode === 'multiPlayer'}
-                onChange={handleChange}
-              />
-              <label htmlFor='multiPlayer'>
-                <FormattedMessage id='welcome.mode.two' />
-              </label>
-              <input type='radio' name='playMode' onChange={handleChange} />
-              <label htmlFor='singlePlayer'>
-                <FormattedMessage id='welcome.mode.one' />
-              </label>
-            </div>
+              </FormLabel>
+              <RadioGroup row>
+                <FormControlLabel
+                  name='playMode'
+                  value='multiPlayer'
+                  checked={formData.playMode === 'multiPlayer'}
+                  onChange={handleChange}
+                  label={<FormattedMessage id='welcome.mode.two' />}
+                  control={<Radio />}
+                />
+                <FormControlLabel
+                  name='playMode'
+                  value='singlePlayer'
+                  checked={formData.playMode === 'singlePlayer'}
+                  onChange={handleChange}
+                  label={<FormattedMessage id='welcome.mode.one' />}
+                  control={<Radio />}
+                />
+              </RadioGroup>
+            </FormControl>
             <br />
-            <div className='welcome-lastdiv'>
-              <div className='div-language'>
-                <label htmlFor='language'>
-                  <FormattedMessage id='welcome.lang' />
-                </label>
-                <select
-                  name='language'
-                  id='language'
-                  value={context.locale}
-                  onChange={context.selectLanguage}
-                >
-                  <option value='zh-CN'>中文</option>
-                  <option value='en-US'>English</option>
-                </select>
-              </div>
-              <div>
-                <button type='submit' className='button-start'>
-                  <FormattedMessage id='welcome.start' />
-                </button>
-              </div>
-            </div>
-          </form>
+            <FormControl fullWidth>
+              <InputLabel>
+                <FormattedMessage id='welcome.lang' />
+              </InputLabel>
+              <Select
+                name='language'
+                id='language'
+                value={context.locale}
+                onChange={context.selectLanguage}
+                label={<FormattedMessage id='welcome.lang' />}
+              >
+                <MenuItem value='zh-CN'>中文</MenuItem>
+                <MenuItem value='en-US'>English</MenuItem>
+              </Select>
+            </FormControl>
+            <br />
+            <Button type='submit' variant='outlined'>
+              {<FormattedMessage id='welcome.start' />}
+            </Button>
+          </Box>
         </div>
         <div>
           <img src='/src/images/shipGroup.png'></img>
