@@ -5,11 +5,12 @@
 
 .over-title {
   font-size: 4em;
+  margin-top: -20px;
 }
 
 .over-winner {
   font-size: 3em;
-  margin-top: 30px;
+  margin-top: 10px;
 }
 
 .over-show {
@@ -19,12 +20,14 @@
 }
 
 .show-data {
-  width: 300px;
-  margin-top: 100px;
+  width: 400px;
+  margin-left: 53px;
+  margin-right: 40px;
 }
 
 .show-board {
-  width: 500px;
+  width: 400px;
+  margin-left: 50px;
 }
 
 .mini-board {
@@ -44,17 +47,30 @@
   font-size: 1.5em;
 }
 
-.data-card {
-  border: 1px solid black;
+.show-data .data-card {
   margin-bottom: 20px;
+  background-color: #80808087;
+  width: 350px;
+}
+
+.show-board .data-card {
+  margin-bottom: 20px;
+  background-color: #80808087;
+  width: 350px;
 }
 
 .data-player {
   font-size: 2em;
   margin-bottom: 10px;
+  color: white;
 }
 
 .data-card p {
   font-size: 1.3em;
   line-height: 1.5em;
+  color: white;
+}
+
+.mini-board-container {
+  margin-left: -30px;
 }
