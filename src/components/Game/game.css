@@ -2,8 +2,6 @@
   display: flex;
   margin-top: 80px;
   justify-content: space-evenly;
-  position: relative;
-  bottom: 160px;
 }
 
 .board {
@@ -172,10 +170,10 @@
   margin-top: 60px;
 }
 
-.game-wrapper {
+/* .game-wrapper {
   height: calc(100vh - 69px);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-}
+} */
