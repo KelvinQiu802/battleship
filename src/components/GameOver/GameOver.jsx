@@ -30,8 +30,8 @@ const GameOver = ({
             name={formData.p1Name}
             player='p1'
           />
-
         </div>
+
         <div className='show-board'>
           <DataCatd name={formData.p2Name} attack={p2Attack} />
           <MiniBoard

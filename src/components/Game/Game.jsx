@@ -45,16 +45,18 @@ const Game = ({ gameState, setGameState, formData }) => {
     <div className='game'>
       <Header />
       {gameOver ? (
-        <GameOver
-          gameState={gameState}
-          formData={formData}
-          p1FinalBoard={p1FinalBoard}
-          p2FinalBoard={p2FinalBoard}
-          p1Attack={p1Attack}
-          p2Attack={p2Attack}
-        />
+        <div className='game-wrapper'>
+          <GameOver
+            gameState={gameState}
+            formData={formData}
+            p1FinalBoard={p1FinalBoard}
+            p2FinalBoard={p2FinalBoard}
+            p1Attack={p1Attack}
+            p2Attack={p2Attack}
+          />
+        </div>
       ) : (
-        <>
+        <div className='game-wrapper'>
           <main className='area game-area'>
             {isPlacing ? (
               <Board
@@ -131,7 +133,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             )}
           </main>
           <Tip gameState={gameState} />
-        </>
+        </div>
       )}
     </div>
   );

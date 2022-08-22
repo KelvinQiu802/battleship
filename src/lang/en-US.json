@@ -18,8 +18,8 @@
   "tip.p2Attack": "⬆Player2: Select coordinates on the left board to attack.",
   "over.title": "Game Over",
   "over.winner": "The winner is: {winner}",
-  "over.numberOfAttack": "Number of Attack:",
-  "over.numberOfHit":"Number of Hit:",
-  "over.numberOfMiss":"Number of Miss:",
-  "over.hitRate": "Hit Rate:"
+  "over.numberOfAttack": "Number of Attack: ",
+  "over.numberOfHit":"Number of Hit: ",
+  "over.numberOfMiss":"Number of Miss: ",
+  "over.hitRate": "Hit Rate: "
 }
