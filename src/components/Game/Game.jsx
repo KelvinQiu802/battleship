@@ -54,7 +54,7 @@ const Game = ({ gameState, setGameState, formData }) => {
           p2Attack={p2Attack}
         />
       ) : (
-        <>
+        <div className='game-wrapper'>
           <main className='area game-area'>
             {isPlacing ? (
               <Board
@@ -131,7 +131,7 @@ const Game = ({ gameState, setGameState, formData }) => {
             )}
           </main>
           <Tip gameState={gameState} />
-        </>
+        </div>
       )}
     </div>
   );

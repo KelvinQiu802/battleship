@@ -2,6 +2,8 @@
   display: flex;
   margin-top: 80px;
   justify-content: space-evenly;
+  position: relative;
+  bottom: 160px;
 }
 
 .board {
@@ -116,7 +118,7 @@
 .harbour {
   width: 200px;
   border: 5px solid #c2762182;
-  padding: 27px 20px;
+  padding: 15px 20px;
   border-radius: 10px;
 }
 
@@ -168,4 +170,12 @@
   font-size: 2em;
   text-align: center;
   margin-top: 60px;
+}
+
+.game-wrapper {
+  height: calc(100vh - 69px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
