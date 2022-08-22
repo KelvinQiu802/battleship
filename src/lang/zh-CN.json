@@ -13,7 +13,7 @@
   "welcome.start": "开始游戏",
   "board.title": "{name}的棋盘",
   "board.waitMessage": "等待玩家{isP1}放置",
-  "tip.placing": "选择船之后在棋盘上放置，右键旋转方向",
+  "tip.placing": "选择船只后在棋盘上放置，右键旋转方向",
   "tip.p1Attack": "玩家一: 在右侧棋盘上选择坐标进行攻击⬆",
   "tip.p2Attack": "⬆玩家二: 在左侧棋盘上选择坐标进行攻击",
   "over.title": "游戏结束",
