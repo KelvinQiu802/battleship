@@ -18,8 +18,8 @@
   "tip.p2Attack": "⬆玩家二: 在左侧棋盘上选择坐标进行攻击",
   "over.title": "游戏结束",
   "over.winner": "赢家是:{winner}",
-  "over.numberOfAttack": "攻击次数:",
-  "over.numberOfHit":"命中次数:",
-  "over.numberOfMiss":"脱靶次数:",
-  "over.hitRate": "命中率:"
+  "over.numberOfAttack": "攻击次数: ",
+  "over.numberOfHit":"命中次数: ",
+  "over.numberOfMiss":"脱靶次数: ",
+  "over.hitRate": "命中率: "
 }
