@@ -1,4 +1,6 @@
 .over {
+  position: relative;
+  bottom: 150px;
   text-align: center;
   margin-top: 40px;
 }
@@ -16,7 +18,7 @@
 .over-show {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 45px;
 }
 
 .show-data {
@@ -48,29 +50,19 @@
 }
 
 .show-data .data-card {
-  margin-bottom: 20px;
-  background-color: #80808087;
   width: 350px;
 }
 
 .show-board .data-card {
-  margin-bottom: 20px;
-  background-color: #80808087;
   width: 350px;
 }
 
 .data-player {
   font-size: 2em;
   margin-bottom: 10px;
-  color: white;
 }
 
 .data-card p {
   font-size: 1.3em;
-  line-height: 1.5em;
-  color: white;
-}
-
-.mini-board-container {
-  margin-left: -30px;
+  line-height: 1.6em;
 }
