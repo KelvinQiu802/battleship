@@ -170,10 +170,20 @@
   margin-top: 60px;
 }
 
-/* .game-wrapper {
-  height: calc(100vh - 69px);
+.game-wrapper {
+  height: calc(100vh - 200px);
+  min-height: 512px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-} */
+}
+
+.gameover-wrapper {
+  height: calc(100vh - 200px);
+  min-height: 688px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}

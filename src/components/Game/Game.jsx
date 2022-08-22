@@ -45,7 +45,7 @@ const Game = ({ gameState, setGameState, formData }) => {
     <div className='game'>
       <Header />
       {gameOver ? (
-        <div className='game-wrapper'>
+        <div className='gameover-wrapper'>
           <GameOver
             gameState={gameState}
             formData={formData}
