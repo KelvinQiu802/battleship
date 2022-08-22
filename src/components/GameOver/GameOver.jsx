@@ -25,14 +25,15 @@ const GameOver = ({
       <main className='over-show'>
         <div className='show-data'>
           <DataCatd name={formData.p1Name} attack={p1Attack} />
-          <DataCatd name={formData.p2Name} attack={p2Attack} />
-        </div>
-        <div className='show-board'>
           <MiniBoard
             finalBoard={p1FinalBoard}
             name={formData.p1Name}
             player='p1'
           />
+
+        </div>
+        <div className='show-board'>
+          <DataCatd name={formData.p2Name} attack={p2Attack} />
           <MiniBoard
             finalBoard={p2FinalBoard}
             name={formData.p2Name}
