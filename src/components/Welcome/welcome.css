@@ -77,9 +77,10 @@ img {
   border-radius: 30px;
 }
 
-/* .wrapper {
-  height: calc(100vh - 62px);
+.wrapper {
+  height: calc(100vh - 200px);
+  min-height: 462px;
   display: flex;
   justify-content: center;
   align-items: center;
-} */
+}
