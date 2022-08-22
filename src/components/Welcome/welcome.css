@@ -1,18 +1,20 @@
 .welcome-body {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  margin-top: 100px;
+  position: relative;
+  bottom: 150px;
 }
 .welcome-title {
-  font-size: 2.5em;
+  font-size: 2.8em;
   letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .welcome-intro {
   font-size: 1.1em;
   margin-top: 10px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   width: 500px;
 }
 
@@ -74,4 +76,11 @@ img {
   padding: 15px;
   background-color: #e9eaed;
   border-radius: 30px;
+}
+
+.wrapper {
+  height: calc(100vh - 62px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
