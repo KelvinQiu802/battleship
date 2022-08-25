@@ -1,4 +1,4 @@
-import logo from '../assets/favicon.svg';
+import logo from '/favicon.svg';
 
 const Header = () => {
   return (

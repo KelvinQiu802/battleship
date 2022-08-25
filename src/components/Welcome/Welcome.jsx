@@ -17,7 +17,7 @@ import {
   Select,
   TextField,
 } from '@mui/material';
-import rightImg from '../../images/shipGroup.png';
+import rightImg from '/shipGroup.png';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
   const context = React.useContext(Context);
