@@ -17,6 +17,7 @@ import {
   Select,
   TextField,
 } from '@mui/material';
+import rightImg from '../../images/shipGroup.png';
 
 const Welcome = ({ setGameState, formData, setFormData }) => {
   const context = React.useContext(Context);
@@ -160,7 +161,7 @@ const Welcome = ({ setGameState, formData, setFormData }) => {
             </Box>
           </div>
           <div>
-            <img src='/src/images/shipGroup.png'></img>
+            <img src={rightImg}></img>
           </div>
         </main>
       </div>
