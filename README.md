@@ -1,5 +1,10 @@
 # Battleship 海战棋
 
+
+<p align="center">
+<img src="https://imgbed.codingkelvin.fun/uPic/shipicon.svg"/>
+</p>
+
 ## 项目背景
 
 来自我大一下的大作业，使用Python完成，有两个版本：命令行版和GUI版。由于时间原因，只完成了基础部分，希望能把它重新在Web上展现出来。
